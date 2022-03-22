@@ -1,0 +1,17 @@
+@namespace(uri="http://mdse.org/minisql/schema", prefix="minisqlschema")
+package schema;
+
+import "platform:/resource/org.mdse.minisql.types/model/MiniSQLTypes.ecore"; 
+
+abstract class NamedElement {
+	attr String[1] name;
+}
+
+class Table extends NamedElement {
+	val Column[*] columns;
+}
+
+class Column extends NamedElement, types.TypedElement {
+	val types.Type type;
+}
+

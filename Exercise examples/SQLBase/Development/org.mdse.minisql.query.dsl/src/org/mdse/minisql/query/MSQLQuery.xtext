@@ -1,0 +1,150 @@
+grammar org.mdse.minisql.query.MSQLQuery with org.mdse.minisql.types.MSQLTypes
+
+import "http://mdse.org/minisql/query" 
+import "http://mdse.org/minisql/schema" as schema
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+SelectQuery:
+	"SELECT"
+		whatClause=WhatClause
+		fromClause=FromClause
+		whereClause=WhereClause?
+		orderByClause=OrderByClause?
+		";"
+;
+
+WhatClause returns WhatClause:
+	whatDirectives+=WhatDirective ("," whatDirectives+=WhatDirective)*
+;
+
+WhatDirective:
+	AllColumnsWhatDirective | SingleColumnWhatDirective
+;
+
+AllColumnsWhatDirective:
+	"*" {AllColumnsWhatDirective}
+;
+
+SingleColumnWhatDirective:
+	columnReference=ColumnReference
+;
+
+
+FromClause returns FromClause:
+	"FROM"
+		tableReference=TableReference
+;
+
+
+WhereClause returns WhereClause:
+	"WHERE"
+		expression=Expression
+;
+
+
+OrderByClause returns OrderByClause:
+	"ORDER" "BY"
+		orderDirectives+=OrderDirective ("," orderDirectives+=OrderDirective)*
+;
+
+OrderDirective:
+	columnReference=ColumnReference
+	(direction=OrderDirection)? 
+;
+
+enum OrderDirection:
+	ASCENDING="ASC" | DESCENDING="DESC"
+;
+
+Expression returns Expression:
+	OrExpression
+;
+
+OrExpression returns Expression:
+	AndExpression ({BinaryLogicalExpression.expression1=current} operator=OrOperator expression2=AndExpression)*
+;
+
+enum OrOperator returns LogicalOperator:
+	OR="OR"
+;
+
+AndExpression returns Expression:
+	AndOperand ({BinaryLogicalExpression.expression1=current} operator=AndOperator expression2=AndOperand)*
+;
+
+enum AndOperator returns LogicalOperator:
+	AND="AND"
+;
+
+//Pure grammar rule without meta model equivalent.
+AndOperand returns Expression:
+	NotExpression | ComparativeExpression
+;
+
+NotExpression returns UnaryLogicalExpression:
+	 operator=NotOperator expression=ComparativeExpression
+;
+
+enum NotOperator returns LogicalOperator:
+	NOT="NOT"
+;
+
+ComparativeExpression returns Expression:
+	AdditiveExpression ({ComparativeExpression.expression1=current} operator=ComparativeOperator expression2=AdditiveExpression)*
+;
+
+enum ComparativeOperator:
+	LESS_THAN_OR_EQUAL="<=" | LESS_THAN="<" | EQUAL="=" | NOT_EQUAL="!=" | GREATER_THAN=">" | GREATER_THAN_OR_EQUAL=">="
+;
+
+
+AdditiveExpression returns Expression:
+	MultiplicativeExpression ({ArithmeticExpression.expression1=current} operator=AdditiveOperator expression2=MultiplicativeExpression)*
+;
+
+enum AdditiveOperator returns ArithmeticOperator:
+	ADD="+" | SUBTRACT="-"
+;
+
+MultiplicativeExpression returns Expression:
+	AtomicExpression ({ArithmeticExpression.expression1=current} operator=MultiplicativeOperator expression2=AtomicExpression)*
+;
+
+enum MultiplicativeOperator returns ArithmeticOperator:
+	MULTIPLY="*" | DIVIDE="/"
+;
+
+
+
+
+
+//Pure grammar rule without meta model equivalent.
+AtomicExpression returns Expression:
+	("(" Expression ")") | ColumnReference | Literal
+;
+
+TableReference:
+	table=[schema::Table]
+;
+
+ColumnReference:
+	column=[schema::Column]
+;
+
+Literal:
+	StringLiteral | IntegerLiteral | BooleanLiteral
+;
+
+StringLiteral:
+	value=STRING
+;
+
+IntegerLiteral:
+	value=INT
+;
+
+BooleanLiteral:
+	value =BOOL
+;
+
+terminal BOOL returns ecore::EBoolean: (('T'|'t')('R'|'r')('U'|'u')('E'|'e')) | (('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e'));

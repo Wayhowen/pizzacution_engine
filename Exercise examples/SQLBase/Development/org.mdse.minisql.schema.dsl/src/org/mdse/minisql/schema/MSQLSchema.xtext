@@ -1,0 +1,13 @@
+grammar org.mdse.minisql.schema.MSQLSchema with org.mdse.minisql.types.MSQLTypes
+
+import "http://mdse.org/minisql/schema"
+
+Table:
+	"TABLE" name=ID "{"
+		columns+=Column ("," columns+=Column)*
+	"}"
+;
+
+Column:
+	name=ID ":" type=Type
+;

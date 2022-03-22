@@ -1,0 +1,186 @@
+@namespace(uri="http://mdse.org/minisql/query", prefix="minisqlquery")
+package query;
+
+import "platform:/resource/org.mdse.minisql.types/model/MiniSQLTypes.ecore";
+import "platform:/resource/org.mdse.minisql.schema/model/MiniSQLSchema.ecore";
+
+//import "http://mdse.org/minisql/types";
+//import "http://mdse.org/minisql/schema";
+
+class SelectQuery {
+	val WhatClause[1] whatClause;
+	val FromClause[1] fromClause;
+	val WhereClause[?] whereClause;
+	val OrderByClause[?] orderByClause;
+}
+
+class FromClause {
+	val TableReference[1] tableReference;
+}
+
+
+class WhatClause {
+	val WhatDirective[+] whatDirectives;
+}
+
+abstract class WhatDirective {
+}
+
+class AllColumnsWhatDirective extends WhatDirective {
+}
+
+class SingleColumnWhatDirective extends WhatDirective {
+	val ColumnReference columnReference;
+}
+
+class WhereClause {
+	val Expression[1] expression;
+}
+
+class OrderByClause {
+	val OrderDirective[+] orderDirectives;
+}
+
+class OrderDirective {
+	val ColumnReference columnReference;
+	attr OrderDirection direction = "ASCENDING";
+}
+
+enum OrderDirection {
+	ASCENDING = 0;
+	DESCENDING = 1;	
+}
+
+
+//Helper classes
+
+abstract class Binary {
+	val Expression[1] expression1;
+	val Expression[1] expression2;
+}
+
+abstract class Unary {
+	val Expression[1] expression;
+}
+
+
+//Expressions
+
+abstract class Expression extends types.TypedElement {
+}
+
+
+abstract class LogicalExpression extends Expression {
+	attr LogicalOperator[1] operator;
+	
+	@genmodel(body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createBooleanType();")
+	op types.Type[1] getType();
+}
+
+class BinaryLogicalExpression extends Binary, LogicalExpression {
+	//Check validity of operands via constraint
+	//invariant TypeCompatibility('Both operands of a logical expression must be of type Bool.'): expression1.getType().oclIsKindOf(minisqltypes::BooleanType) and expression2.getType().oclIsKindOf(minisqltypes::BooleanType);
+}
+
+class UnaryLogicalExpression extends Unary, LogicalExpression {
+	//Check validity of operands via constraint
+	//invariant TypeCompatibility('Operand of a logical expression must be of type Bool.'): expression.getType().oclIsKindOf(minisqltypes::BooleanType);
+}
+
+enum LogicalOperator {
+	OR = 0;
+	AND = 1;
+	NOT = 2;
+}
+
+class ComparativeExpression extends Binary, Expression {
+	attr ComparativeOperator[1] operator;
+	
+	//Check validity of operands via constraint
+	
+	//invariant TypeCompatibility('Both operands of a comparison must be of the same type.'):
+	//	expression1.getType().oclIsKindOf(minisqltypes::IntegerType) and expression2.getType().oclIsKindOf(minisqltypes::IntegerType) or
+	//	expression1.getType().oclIsKindOf(minisqltypes::StringType) and expression2.getType().oclIsKindOf(minisqltypes::StringType) or
+	//	expression1.getType().oclIsKindOf(minisqltypes::BooleanType) and expression2.getType().oclIsKindOf(minisqltypes::BooleanType);
+		
+	//invariant PermissibleStringOperators('String operands may only be compared for equality (=) or inequality (!=).'):
+	//	expression1.getType().oclIsKindOf(minisqltypes::StringType) and expression2.getType().oclIsKindOf(minisqltypes::StringType) implies
+	//		operator = ComparativeOperator::EQUAL or operator = ComparativeOperator::NOT_EQUAL;
+			
+	//invariant PermissibleBooleanOperators('Bool operands may only be compared for equality (=) or inequality (!=).'):
+	//	expression1.getType().oclIsKindOf(minisqltypes::BooleanType) and expression2.getType().oclIsKindOf(minisqltypes::BooleanType) implies
+	//		operator = ComparativeOperator::EQUAL or operator = ComparativeOperator::NOT_EQUAL;
+	
+	@genmodel(body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createBooleanType();")
+	op types.Type[1] getType();
+}
+
+enum ComparativeOperator {
+	LESS_THAN = 0;
+	LESS_THAN_OR_EQUAL = 1;
+	EQUAL = 2;
+	NOT_EQUAL = 3;
+	GREATER_THAN = 4;
+	GREATER_THAN_OR_EQUAL = 5;
+}
+
+
+class ArithmeticExpression extends Binary, Expression {
+	attr ArithmeticOperator[1] operator;
+	
+	//Check validity of operands via constraint
+	//invariant TypeCompatibility('Both operands of a calculation must be of type Int.'): expression1.getType().oclIsKindOf(minisqltypes::IntegerType) and expression2.getType().oclIsKindOf(minisqltypes::IntegerType);
+	
+	@genmodel(body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createIntegerType();")
+	op types.Type[1] getType();
+}
+
+enum ArithmeticOperator {
+	ADD = 0;
+	SUBTRACT = 1;
+	MULTIPLY = 2;
+	DIVIDE = 3;		
+}
+
+
+//Support class to have uniform place to provide scope for name resolution
+class TableReference {
+	ref schema.Table[1] table;
+}
+
+//Support class to have uniform place to provide scope for name resolution and serve as expression
+class ColumnReference extends Expression {
+	ref schema.Column[1] column;
+	
+	@genmodel(body="return column == null ? org.mdse.minisql.types.TypesFactory.eINSTANCE.createUndefinedType() : column.getType();")
+	op types.Type[1] getType();
+}
+
+
+abstract class Literal extends Expression {
+}
+
+class StringLiteral extends Literal {
+	attr String[1] value;
+	
+	@genmodel(body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createStringType();")
+	op types.Type[1] getType();
+}
+
+class IntegerLiteral extends Literal {
+	attr int[1] value;
+
+	@genmodel(body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createIntegerType();")
+	op types.Type[1] getType();
+}
+
+class BooleanLiteral extends Literal {
+	attr boolean[1] value;
+
+	//Workaround to provide a "getValue()" getter (in addition to the usual "isValue()" getter).
+	@genmodel(body="return isValue();")
+	op Boolean[1] getValue();
+		
+	@genmodel(body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createBooleanType();")
+	op types.Type[1] getType();
+}

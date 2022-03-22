@@ -1,0 +1,7 @@
+TABLE Employees {
+	ID : Int,
+	Name : String,
+	Position : String,
+	Level : Int,
+	Salary : Int
+}

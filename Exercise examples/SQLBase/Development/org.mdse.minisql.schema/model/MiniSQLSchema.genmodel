@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mdse.minisql.schema/src-gen" editDirectory="/org.mdse.minisql.schema.edit/src-gen"
+    editorDirectory="/org.mdse.minisql.schema.editor/src-gen" modelPluginID="org.mdse.minisql.schema"
+    modelName="MiniSQLSchema" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/org.mdse.minisql.schema.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.mdse.minisql.types/model/MiniSQLTypes.genmodel#//types"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>MiniSQLSchema.ecore</foreignModel>
+  <genPackages prefix="Schema" basePackage="org.mdse.minisql" disposableProviderFactory="true"
+      ecorePackage="MiniSQLSchema.ecore#/">
+    <genClasses image="false" ecoreClass="MiniSQLSchema.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLSchema.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLSchema.ecore#//Table">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLSchema.ecore#//Table/columns"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLSchema.ecore#//Column">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLSchema.ecore#//Column/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

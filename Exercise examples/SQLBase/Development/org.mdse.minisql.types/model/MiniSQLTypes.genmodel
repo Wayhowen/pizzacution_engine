@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.mdse.minisql.types/src-gen" editDirectory="/org.mdse.minisql.types.edit/src-gen"
+    editorDirectory="/org.mdse.minisql.types.editor/src-gen" modelPluginID="org.mdse.minisql.types"
+    modelName="MiniSQLTypes" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/org.mdse.minisql.types.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>MiniSQLTypes.ecore</foreignModel>
+  <genPackages prefix="Types" basePackage="org.mdse.minisql" disposableProviderFactory="true"
+      ecorePackage="MiniSQLTypes.ecore#/">
+    <genClasses image="false" ecoreClass="MiniSQLTypes.ecore#//Type"/>
+    <genClasses ecoreClass="MiniSQLTypes.ecore#//IntegerType"/>
+    <genClasses ecoreClass="MiniSQLTypes.ecore#//BooleanType"/>
+    <genClasses ecoreClass="MiniSQLTypes.ecore#//StringType"/>
+    <genClasses ecoreClass="MiniSQLTypes.ecore#//UndefinedType"/>
+    <genClasses image="false" ecoreClass="MiniSQLTypes.ecore#//TypedElement">
+      <genOperations ecoreOperation="MiniSQLTypes.ecore#//TypedElement/getType"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="org.mdse.minisql.query.interpreter.eclipse.launch.MSQLQueryLaunchShortcut"
+            description="Executes the MiniSQL Query"
+            icon="icons/MSQLQuery16.gif"
+            id="org.mdse.minisql.query.interpreter.eclipse.launch.MSQLQueryLaunchShortcutType"
+            label="Execute MiniSQL Query"
+            modes="run">
+          <contextualLaunch>
+           <enablement>
+             <with variable="selection">
+               <count value="1"/>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt type="org.eclipse.core.resources.IFile"/>
+                    <test property="org.eclipse.debug.ui.matchesPattern"
+                          value="*.msqlquery"/>
+               </iterate>
+             </with>
+           </enablement>
+           <contextLabel
+              mode="run"
+              label="MiniSQL Query"/>
+         </contextualLaunch>
+      </shortcut>
+   </extension>
+</plugin>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.mdse.minisql.query/src-gen" editDirectory="/org.mdse.minisql.query.edit/src-gen"
+    editorDirectory="/org.mdse.minisql.query.editor/src-gen" modelPluginID="org.mdse.minisql.query"
+    modelName="MiniSQLQuery" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/org.mdse.minisql.query.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.mdse.minisql.schema/model/MiniSQLSchema.genmodel#//schema ../../org.mdse.minisql.types/model/MiniSQLTypes.genmodel#//types"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>MiniSQLQuery.ecore</foreignModel>
+  <genPackages prefix="Query" basePackage="org.mdse.minisql" disposableProviderFactory="true"
+      ecorePackage="MiniSQLQuery.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MiniSQLQuery.ecore#//OrderDirection">
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//OrderDirection/ASCENDING"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//OrderDirection/DESCENDING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MiniSQLQuery.ecore#//LogicalOperator">
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//LogicalOperator/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//LogicalOperator/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//LogicalOperator/NOT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MiniSQLQuery.ecore#//ComparativeOperator">
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ComparativeOperator/LESS_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ComparativeOperator/LESS_THAN_OR_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ComparativeOperator/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ComparativeOperator/NOT_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ComparativeOperator/GREATER_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ComparativeOperator/GREATER_THAN_OR_EQUAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MiniSQLQuery.ecore#//ArithmeticOperator">
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ArithmeticOperator/ADD"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ArithmeticOperator/SUBTRACT"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ArithmeticOperator/MULTIPLY"/>
+      <genEnumLiterals ecoreEnumLiteral="MiniSQLQuery.ecore#//ArithmeticOperator/DIVIDE"/>
+    </genEnums>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//SelectQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//SelectQuery/whatClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//SelectQuery/fromClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//SelectQuery/whereClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//SelectQuery/orderByClause"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//FromClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//FromClause/tableReference"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//WhatClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//WhatClause/whatDirectives"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="MiniSQLQuery.ecore#//WhatDirective"/>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//AllColumnsWhatDirective"/>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//SingleColumnWhatDirective">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//SingleColumnWhatDirective/columnReference"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//WhereClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//WhereClause/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//OrderByClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//OrderByClause/orderDirectives"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//OrderDirective">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//OrderDirective/columnReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLQuery.ecore#//OrderDirective/direction"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="MiniSQLQuery.ecore#//Binary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//Binary/expression1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//Binary/expression2"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="MiniSQLQuery.ecore#//Unary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//Unary/expression"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="MiniSQLQuery.ecore#//Expression"/>
+    <genClasses image="false" ecoreClass="MiniSQLQuery.ecore#//LogicalExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLQuery.ecore#//LogicalExpression/operator"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//LogicalExpression/getType"
+          body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createBooleanType();"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//BinaryLogicalExpression"/>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//UnaryLogicalExpression"/>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//ComparativeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLQuery.ecore#//ComparativeExpression/operator"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//ComparativeExpression/getType"
+          body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createBooleanType();"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//ArithmeticExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLQuery.ecore#//ArithmeticExpression/operator"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//ArithmeticExpression/getType"
+          body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createIntegerType();"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//TableReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//TableReference/table"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//ColumnReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MiniSQLQuery.ecore#//ColumnReference/column"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//ColumnReference/getType"
+          body="return column == null ? org.mdse.minisql.types.TypesFactory.eINSTANCE.createUndefinedType() : column.getType();"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="MiniSQLQuery.ecore#//Literal"/>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLQuery.ecore#//StringLiteral/value"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//StringLiteral/getType" body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createStringType();"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//IntegerLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLQuery.ecore#//IntegerLiteral/value"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//IntegerLiteral/getType"
+          body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createIntegerType();"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniSQLQuery.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniSQLQuery.ecore#//BooleanLiteral/value"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//BooleanLiteral/getValue"
+          body="return isValue();"/>
+      <genOperations ecoreOperation="MiniSQLQuery.ecore#//BooleanLiteral/getType"
+          body="return org.mdse.minisql.types.TypesFactory.eINSTANCE.createBooleanType();"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
