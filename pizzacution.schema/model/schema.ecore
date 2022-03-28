@@ -4,19 +4,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pizza" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Pizza" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toppings" upperBound="-1"
         eType="#//Topping"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//Sizes"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" unique="false" eType="#//Sauces%20%2F%20Bases"
         defaultValueLiteral="tmt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dough" eType="#//Dough%20Types"
         defaultValueLiteral="nys"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="soldIn" lowerBound="1"
+        upperBound="-1" eType="#//Pizza%20Place"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizza" upperBound="-1"
         eType="#//Pizza"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" eType="#//Food%20Group"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Dough Types">
     <eLiterals name="New Haven Style" literal="nhs"/>
@@ -29,7 +32,7 @@
     <eLiterals name="Tomato" value="1" literal="tmt"/>
     <eLiterals name="Garlic" value="2" literal="glc"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" lowerBound="1" upperBound="-1"
         eType="#//Step"/>
   </eClassifiers>
@@ -39,5 +42,29 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Nutritions" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Nutritions" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calories" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="carbohydrates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proteins" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasLactose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegetarian" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegan" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Food Group">
+    <eLiterals name="vegetables" literal="veg"/>
+    <eLiterals name="meats" value="1" literal="meat"/>
+    <eLiterals name="chseeses" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Sizes">
+    <eLiterals name="Small" literal="s"/>
+    <eLiterals name="Medium" value="1" literal="m"/>
+    <eLiterals name="Large" value="2" literal="l"/>
+    <eLiterals name="Extra Large" value="3" literal="xl"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pizza Place">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pizzasAvailable" lowerBound="1"
+        upperBound="-1" eType="#//Pizza"/>
+  </eClassifiers>
 </ecore:EPackage>
