@@ -1,5 +1,0 @@
-SELECT *
-  FROM Employees 
-  WHERE Level >= 2 AND 
-    Salary * 12 + 1300 > 100000
-  ORDER BY Level DESC, Salary DESC;
