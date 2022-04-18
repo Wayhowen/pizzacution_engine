@@ -4,7 +4,7 @@
     <semanticResources>schema.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_wpSSUKhmEeyteJyinQWSdQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="56474df4-7e09-42c8-8ace-9e223239db28">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="d58f1556-bcd0-43c5-8bcf-e8508de38512">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="schema.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -236,6 +236,10 @@
             <children xmi:type="notation:Node" xmi:id="_6Tke0K7TEeyWlILgMtqC7g" type="3010" element="_6Tat0K7TEeyWlILgMtqC7g">
               <styles xmi:type="notation:FontStyle" xmi:id="_6Tke0a7TEeyWlILgMtqC7g" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_6Tke0q7TEeyWlILgMtqC7g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_V97GQL9MEeygIf8TD1FK0A" type="3010" element="_V9j55L9MEeygIf8TD1FK0A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_V97GQb9MEeygIf8TD1FK0A" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_V97GQr9MEeygIf8TD1FK0A"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_301yka7TEeyWlILgMtqC7g"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_301ykq7TEeyWlILgMtqC7g"/>
@@ -543,7 +547,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_OeptgK7TEeyWlILgMtqC7g" name="foodGroup : FoodGroup = vegetables">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_OeptgK7TEeyWlILgMtqC7g" name="foodGroup : FoodGroup = veg">
         <target xmi:type="ecore:EAttribute" href="schema.ecore#//Topping/foodGroup"/>
         <semanticElements xmi:type="ecore:EAttribute" href="schema.ecore#//Topping/foodGroup"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Oeptga7TEeyWlILgMtqC7g" labelAlignment="LEFT">
@@ -668,9 +672,9 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_veRgkL83EeygIf8TD1FK0A">
-        <target xmi:type="ecore:EAttribute" href="schema.ecore#//Recipe/"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="schema.ecore#//Recipe/"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_veRgkL83EeygIf8TD1FK0A" name="removeMe : EBoolean = false">
+        <target xmi:type="ecore:EAttribute" href="schema.ecore#//Recipe/removeMe"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="schema.ecore#//Recipe/removeMe"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_veRgkb83EeygIf8TD1FK0A" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -909,6 +913,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_V9j55L9MEeygIf8TD1FK0A" name="name : EString">
+        <target xmi:type="ecore:EAttribute" href="schema.ecore#//PizzaPlace/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="schema.ecore#//PizzaPlace/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_V9kg8L9MEeygIf8TD1FK0A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__Tf8gK7TEeyWlILgMtqC7g" name="[1..*] soldIn" sourceNode="_M1mXEqhnEeyteJyinQWSdQ" targetNode="_3y6f8K7TEeyWlILgMtqC7g">
       <target xmi:type="ecore:EReference" href="schema.ecore#//Pizza/soldIn"/>
@@ -919,12 +931,12 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_G0rO8K7UEeyWlILgMtqC7g" name="[1..*] pizzasAvailable" sourceNode="_3y6f8K7TEeyWlILgMtqC7g" targetNode="_M1mXEqhnEeyteJyinQWSdQ">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_G0rO8K7UEeyWlILgMtqC7g" name="[0..*] pizzasAvailable" sourceNode="_3y6f8K7TEeyWlILgMtqC7g" targetNode="_M1mXEqhnEeyteJyinQWSdQ">
       <target xmi:type="ecore:EReference" href="schema.ecore#//PizzaPlace/pizzasAvailable"/>
       <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//PizzaPlace/pizzasAvailable"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_G0r2AK7UEeyWlILgMtqC7g">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_G0r2Aa7UEeyWlILgMtqC7g" showIcon="false"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-_ls0L9MEeygIf8TD1FK0A" sourceArrow="FillDiamond" targetArrow="NoDecoration" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-_ls0b9MEeygIf8TD1FK0A" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>

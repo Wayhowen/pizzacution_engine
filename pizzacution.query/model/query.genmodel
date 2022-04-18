@@ -8,5 +8,7 @@
   <foreignModel>query.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Query" basePackage="pizzacution" disposableProviderFactory="true"
-      ecorePackage="query.ecore#/"/>
+      ecorePackage="query.ecore#/">
+    <genClasses ecoreClass="query.ecore#//SelectQuery"/>
+  </genPackages>
 </genmodel:GenModel>

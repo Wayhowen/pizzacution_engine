@@ -20,7 +20,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizza" upperBound="-1"
         eType="#//Pizza"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" ordered="false"
-        unique="false" eType="#//FoodGroup" defaultValueLiteral="vegetables"/>
+        unique="false" eType="#//FoodGroup" defaultValueLiteral="veg"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="toppingAmount" eType="#//ToppingAmount"
         defaultValueLiteral="normal"/>
   </eClassifiers>
@@ -38,7 +38,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Recipe" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" lowerBound="1" upperBound="-1"
         eType="#//Step"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="removeMe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Step">
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" lowerBound="1"
@@ -68,8 +68,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PizzaPlace">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pizzasAvailable" lowerBound="1"
-        upperBound="-1" eType="#//Pizza"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pizzasAvailable" upperBound="-1"
+        eType="#//Pizza" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ToppingAmount">
     <eLiterals name="small"/>
