@@ -55,7 +55,6 @@
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//Recipe">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Recipe/steps"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Recipe/"/>
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//Step">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Step/recipe"/>
