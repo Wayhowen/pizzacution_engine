@@ -12,11 +12,13 @@ PizzaPlace: "We" "are" name=STRING "," "and" "we" "are" "located" "at" address=S
 
 SizeInfo returns SizeInfo: size=Sizes "that" "serves" serves=INT "people";
 
-Pizza returns Pizza: size=[SizeInfo] name=STRING "pizza"
+Pizza returns Pizza: sizeReference+=SizeInfoReference name=STRING "pizza"
 	"on" dough=DoughTypes "dough"
 	"with" sauce=Sauces "sauce"
 	"with" toppings+=[Topping]
 ;
+
+SizeInfoReference: sizeInfo=[SizeInfo];
 
 Topping returns Topping: name=STRING;
 
