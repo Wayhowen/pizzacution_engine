@@ -14,7 +14,8 @@
         defaultValueLiteral="nys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="soldIn" lowerBound="1"
         eType="#//PizzaPlace" eOpposite="#//PizzaPlace/pizzasAvailable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="size" lowerBound="1" eType="#//SizeInfo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="size" lowerBound="1" upperBound="-1"
+        eType="#//SizeInfo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="onPizza" upperBound="-1"

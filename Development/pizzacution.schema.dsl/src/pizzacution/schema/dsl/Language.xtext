@@ -10,15 +10,15 @@ PizzaPlace: "We" "are" name=STRING "," "and" "we" "are" "located" "at" address=S
 	"We" "offer" "the" "following" "pizzas:" pizzasAvailable+=Pizza ("," pizzasAvailable+=Pizza)* "."
 ;
 
-SizeInfo returns SizeInfo: size=Sizes "that" "serves" serves=INT "people";
-
-Pizza returns Pizza: size=[SizeInfo] name=STRING "pizza"
+Pizza returns Pizza: size+=[SizeInfo] name=STRING "pizza"
 	"on" dough=DoughTypes "dough"
 	"with" sauce=Sauces "sauce"
 	"with" toppings+=[Topping]
 ;
 
-Topping returns Topping: name=STRING;
+SizeInfo: size=Sizes "that" "serves" serves=INT "people";
+
+Topping: name=STRING;
 
 // Notes:
 // 1. Maybe we could make a central storage of dough types and sauces and so on, to which pizza place could add?

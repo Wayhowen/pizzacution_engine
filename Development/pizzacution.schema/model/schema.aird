@@ -4,7 +4,7 @@
     <semanticResources>schema.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_wpSSUKhmEeyteJyinQWSdQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="eaf2b5f6-5e99-45a1-9f1d-86566695515c">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="fea5f7c4-7308-469f-8ae1-6713bf348fea">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="schema.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -919,8 +919,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_u-8a0L_oEeyudIUDEC6ybg" name="[0..*] pizzasAvailable - [1..1] soldIn" sourceNode="_M1mXEqhnEeyteJyinQWSdQ" targetNode="_3y6f8K7TEeyWlILgMtqC7g">
       <target xmi:type="ecore:EReference" href="schema.ecore#//Pizza/soldIn"/>
-      <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Pizza/soldIn"/>
       <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//PizzaPlace/pizzasAvailable"/>
+      <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Pizza/soldIn"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_u_MScL_oEeyudIUDEC6ybg" targetArrow="NoDecoration">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_u_MScb_oEeyudIUDEC6ybg" showIcon="false"/>
@@ -929,8 +929,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_OfkqkMCaEeydl4HR4LuACw" name="[1..1] recipe - [1..*] steps" sourceNode="_s0YSoKntEeyNSvMZdDAtug" targetNode="_2PjMkKntEeyNSvMZdDAtug">
       <target xmi:type="ecore:EReference" href="schema.ecore#//Recipe/steps"/>
-      <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Step/recipe"/>
       <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Recipe/steps"/>
+      <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Step/recipe"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OfkqkcCaEeydl4HR4LuACw" targetArrow="NoDecoration">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_OfkqksCaEeydl4HR4LuACw" showIcon="false"/>
@@ -974,7 +974,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_sqE-sMC4EeyskOYywsTirg" name="[1..1] size" sourceNode="_M1mXEqhnEeyteJyinQWSdQ" targetNode="_nHSEgMC4EeyskOYywsTirg">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_sqE-sMC4EeyskOYywsTirg" name="[1..*] size" sourceNode="_M1mXEqhnEeyteJyinQWSdQ" targetNode="_nHSEgMC4EeyskOYywsTirg">
       <target xmi:type="ecore:EReference" href="schema.ecore#//Pizza/size"/>
       <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Pizza/size"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_pd0dEMDDEeyskOYywsTirg">

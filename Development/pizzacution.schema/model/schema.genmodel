@@ -76,6 +76,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//PizzaPlace/pizzasAvailable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//PizzaPlace/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//PizzaPlace/sizesAvailable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schema.ecore#//PizzaPlace/toppingsAvailable"/>
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//SizeInfo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//SizeInfo/size"/>
