@@ -3,6 +3,18 @@
  */
 package pizzacution.schema.dsl.scoping;
 
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+
+import pizzacution.schema.Pizza;
+import pizzacution.schema.PizzaPlace;
+import pizzacution.schema.SizeInfo;
+import pizzacution.schema.SizeInfoReference;
 
 /**
  * This class contains custom scoping description.
@@ -10,6 +22,40 @@ package pizzacution.schema.dsl.scoping;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-public class LanguageScopeProvider extends AbstractLanguageScopeProvider {
 
+public class LanguageScopeProvider extends AbstractLanguageScopeProvider {
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		System.out.println("im working");
+		// if it is the "what" reference of query
+		if (context instanceof SizeInfoReference) {
+			// provide a custom scope
+			SizeInfoReference sizeInfoReference = (SizeInfoReference) context;
+			return getSizeInfoReferenceScope(sizeInfoReference);
+		}
+		
+		return super.getScope(context, reference);
+	}
+	
+	protected IScope getSizeInfoReferenceScope(SizeInfoReference sizeInfoReference) {
+		// Get the root model element via reflection on the model
+		EObject rootModelElement = EcoreUtil.getRootContainer(sizeInfoReference);
+		
+//		Pizza pizzaReference = (Pizza) rootModelElement;
+		PizzaPlace pzplc = (PizzaPlace) rootModelElement;
+		List<SizeInfo> sizeInfos = pzplc.getSizesAvailable();
+		return Scopes.scopeFor(sizeInfos);
+//		if (rootModelElement instanceof SelectQuery) {
+//			// Find the table referenced in the select query's from clause
+//			SelectQuery selectQuery = (SelectQuery) rootModelElement;
+//			FromClause fromClause = selectQuery.getFromClause();
+//			
+//			Table table = fromClause.getTable();
+//			List<Column> columns = table.getColumns();
+//			
+//			return Scopes.scopeFor(columns);
+//		}
+		
+//		return null;
+	}
 }

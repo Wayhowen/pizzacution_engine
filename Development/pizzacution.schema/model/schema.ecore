@@ -14,7 +14,7 @@
         defaultValueLiteral="nys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="soldIn" lowerBound="1"
         eType="#//PizzaPlace" eOpposite="#//PizzaPlace/pizzasAvailable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeReference" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfoReference" lowerBound="1"
         upperBound="-1" eType="#//SizeInfoReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement #//Nutritions">
@@ -71,7 +71,7 @@
     <eLiterals name="normal"/>
     <eLiterals name="large"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SizeInfo">
+  <eClassifiers xsi:type="ecore:EClass" name="SizeInfo" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//Sizes"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serves" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

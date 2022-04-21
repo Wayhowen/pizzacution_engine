@@ -4,25 +4,25 @@ grammar pizzacution.schema.dsl.Language with org.eclipse.xtext.common.Terminals
 import "http://www.example.org/schema" 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-PizzaPlace: "We" "are" name=STRING "," "and" "we" "are" "located" "at" address=STRING "."
-	"We" "offer" "following" "sizes:" sizesAvailable+=SizeInfo ("," sizesAvailable+=SizeInfo)* "."
-	"We" "have" "following" "toppings:" toppingsAvailable+=Topping ("," toppingsAvailable+=Topping)* "."
-	"We" "offer" "the" "following" "pizzas:" pizzasAvailable+=Pizza ("," pizzasAvailable+=Pizza)* "."
+PizzaPlace: "We" "are" name=STRING "," "and" "we" "are" "located" "at" address=STRING
+	"We" "offer" "following" "sizes:" sizesAvailable+=SizeInfo ("," sizesAvailable+=SizeInfo)*
+//	"We" "have" "following" "toppings:" toppingsAvailable+=Topping ("," toppingsAvailable+=Topping)*
+	"We" "offer" "the" "following" "pizzas:" pizzasAvailable+=Pizza ("," pizzasAvailable+=Pizza)*
 ;
 
-SizeInfo returns SizeInfo: size=Sizes "that" "serves" serves=INT "people";
+SizeInfo returns SizeInfo: name=ID size=Sizes "that" "serves" serves=INT "people";
 
-Pizza returns Pizza: sizeReference+=SizeInfoReference name=STRING "pizza"
+Pizza returns Pizza: sizeInfoReference+=SizeInfoReference name=STRING "pizza"
 	"on" dough=DoughTypes "dough"
 	"with" sauce=Sauces "sauce"
-	"with" toppings+=[Topping]
+//	"with" toppings+=[Topping]
 ;
 
 SizeInfoReference: sizeInfo=[SizeInfo];
 
 Topping returns Topping: name=STRING;
 
-Topping: name=STRING;
+//Topping: name=STRING;
 
 // Notes:
 // 1. Maybe we could make a central storage of dough types and sauces and so on, to which pizza place could add?
