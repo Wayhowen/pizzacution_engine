@@ -10,11 +10,13 @@
       ecorePackage="recipe.ecore#/">
     <genClasses ecoreClass="recipe.ecore#//Recipe">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/step"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/steps"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Step/number"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Step/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Step/recipe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Step/recipe.1"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
