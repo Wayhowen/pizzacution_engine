@@ -10,13 +10,17 @@ PizzaPlace: "We" "are" name=STRING "," "and" "we" "are" "located" "at" address=S
 	"We" "offer" "the" "following" "pizzas:" pizzasAvailable+=Pizza ("," pizzasAvailable+=Pizza)* "."
 ;
 
-Pizza returns Pizza: size+=[SizeInfo] name=STRING "pizza"
+SizeInfo returns SizeInfo: size=Sizes "that" "serves" serves=INT "people";
+
+Pizza returns Pizza: sizeReference+=SizeInfoReference name=STRING "pizza"
 	"on" dough=DoughTypes "dough"
 	"with" sauce=Sauces "sauce"
 	"with" toppings+=[Topping]
 ;
 
-SizeInfo: size=Sizes "that" "serves" serves=INT "people";
+SizeInfoReference: sizeInfo=[SizeInfo];
+
+Topping returns Topping: name=STRING;
 
 Topping: name=STRING;
 
