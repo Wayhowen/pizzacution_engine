@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/pizzacution.recipe/src-gen" editDirectory="/pizzacution.recipe.edit/src-gen"
+    editorDirectory="/pizzacution.recipe.editor/src-gen" modelPluginID="pizzacution.recipe"
+    modelName="Recipe" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/pizzacution.recipe.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>recipe.ecore</foreignModel>
+  <genPackages prefix="Recipe" basePackage="pizzacution.recipe" disposableProviderFactory="true"
+      ecorePackage="recipe.ecore#/">
+    <genClasses ecoreClass="recipe.ecore#//Recipe">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/step"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//Step">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Step/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Step/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Step/recipe"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
