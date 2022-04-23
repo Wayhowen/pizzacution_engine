@@ -26,7 +26,6 @@ import pizzacution.schema.SizeInfoReference;
 public class LanguageScopeProvider extends AbstractLanguageScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
-		System.out.println("im working");
 		// if it is the "what" reference of query
 		if (context instanceof SizeInfoReference) {
 			// provide a custom scope
@@ -38,24 +37,10 @@ public class LanguageScopeProvider extends AbstractLanguageScopeProvider {
 	}
 	
 	protected IScope getSizeInfoReferenceScope(SizeInfoReference sizeInfoReference) {
-		// Get the root model element via reflection on the model
 		EObject rootModelElement = EcoreUtil.getRootContainer(sizeInfoReference);
-		
-//		Pizza pizzaReference = (Pizza) rootModelElement;
+
 		PizzaPlace pzplc = (PizzaPlace) rootModelElement;
 		List<SizeInfo> sizeInfos = pzplc.getSizesAvailable();
 		return Scopes.scopeFor(sizeInfos);
-//		if (rootModelElement instanceof SelectQuery) {
-//			// Find the table referenced in the select query's from clause
-//			SelectQuery selectQuery = (SelectQuery) rootModelElement;
-//			FromClause fromClause = selectQuery.getFromClause();
-//			
-//			Table table = fromClause.getTable();
-//			List<Column> columns = table.getColumns();
-//			
-//			return Scopes.scopeFor(columns);
-//		}
-		
-//		return null;
 	}
 }

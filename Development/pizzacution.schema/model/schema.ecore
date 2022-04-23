@@ -7,10 +7,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Pizza" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toppings" upperBound="-1"
         eType="#//Topping" eOpposite="#//Topping/onPizza"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" unique="false" eType="#//Sauces"
-        defaultValueLiteral="tmt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dough" eType="#//DoughTypes"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" unique="false" lowerBound="1"
+        eType="#//Sauces" defaultValueLiteral="tmt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dough" lowerBound="1" eType="#//DoughTypes"
         defaultValueLiteral="nys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="soldIn" lowerBound="1"
         eType="#//PizzaPlace" eOpposite="#//PizzaPlace/pizzasAvailable"/>
@@ -22,8 +23,7 @@
         eType="#//Pizza" eOpposite="#//Pizza/toppings"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" ordered="false"
         unique="false" eType="#//FoodGroup" defaultValueLiteral="veg"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toppingAmount" eType="#//ToppingAmount"
-        defaultValueLiteral="normal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DoughTypes">
     <eLiterals name="NewHavenStyle" literal="nhs"/>
@@ -57,24 +57,23 @@
     <eLiterals name="ExtraLarge" value="3" literal="xl"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PizzaPlace">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizzasAvailable" upperBound="-1"
         eType="#//Pizza" containment="true" eOpposite="#//Pizza/soldIn"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sizesAvailable" lowerBound="1"
         upperBound="-1" eType="#//SizeInfo" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toppingsAvailable" upperBound="-1"
         eType="#//Topping" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ToppingAmount">
-    <eLiterals name="small"/>
-    <eLiterals name="normal"/>
-    <eLiterals name="large"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SizeInfo" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//Sizes"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serves" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serves" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priceMultiplier" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SizeInfoReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfo" lowerBound="1"
