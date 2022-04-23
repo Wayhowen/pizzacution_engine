@@ -3,5 +3,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="query" nsURI="http://www.example.org/query" nsPrefix="query">
   <eClassifiers xsi:type="ecore:EClass" name="SelectQuery">
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//Pizza"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whatClause" lowerBound="1"
+        eType="#//whatClause" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="allPizzas" eSuperTypes="#//whatClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="whatClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="somePizzas" eSuperTypes="#//whatClause"/>
 </ecore:EPackage>
