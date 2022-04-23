@@ -10,26 +10,54 @@ PizzaPlace: "We" "are" name=STRING "," "and" "we" "are" "located" "at" address=S
 	"We" "offer" "the" "following" "pizzas:" pizzasAvailable+=Pizza ("," pizzasAvailable+=Pizza)* "."
 ;
 
-SizeInfo returns SizeInfo: size=Sizes "that" "serves" serves=INT "people";
+// TODO: we need to add size I think, discuss with Christoph
+SizeInfo returns SizeInfo: name=ID "that" "serves" serves=INT "people" "and" "multiplies" "the" "price" "by" priceMultiplier=FLOAT;
 
-Pizza returns Pizza: sizeReference+=SizeInfoReference name=STRING "pizza"
+// TODO: why is bidirectional reference a problem?
+Pizza returns Pizza: name=STRING "pizza"
+	"in" "sizes" sizeInfoReference+=SizeInfoReference ("," sizeInfoReference+=SizeInfoReference)*
 	"on" dough=DoughTypes "dough"
 	"with" sauce=Sauces "sauce"
-	"with" toppings+=[Topping]
+	"and" toppings+=[Topping] ("," toppings+=[Topping])* "toppings"
 ;
 
 SizeInfoReference: sizeInfo=[SizeInfo];
 
-Topping returns Topping: name=STRING;
+Topping returns Topping: name=ID "which" "have" 
+		calories=INT "calories" ","
+		carbohydrates=FLOAT "carbs" "," 
+		proteins=FLOAT "proteins" ","
+		fat=FLOAT "fat" "and"
+		"belongs" "to" foodGroup=FoodGroup "food" "group"
+		"and" "costs" price=FLOAT
+;
 
+enum Sizes returns Sizes:
+				Small =  'Small' | Medium = 'Medium' | Large = 'Large' | ExtraLarge = 'XL';
+
+enum Sauces returns Sauces:
+				BBQ = 'BBQ' | Tomato = 'Tomato' | Garlic = 'Garlic';
+
+enum DoughTypes returns DoughTypes:
+				NewHavenStyle = 'New Haven Style' | StLouisStyle = 'St. Louis Style' | Neapolitan = 'Neapolitan' | NewYorkStyle = 'New York Style';
+
+enum FoodGroup returns FoodGroup:
+				vegetables = 'vegetables' | meats = 'meats' | cheese = 'cheese';
 // Notes:
 // 1. Maybe we could make a central storage of dough types and sauces and so on, to which pizza place could add?
 // Then we could easily extend the enums 
 // 2. How do we generate the pizza in a couple of different sizes? Like let's say I declred a pizza that is "in all sizes" and then 
-// multiply that somehow -- I THINK NOT RELEVANT WITH SERVING SO MANY PEOPLE
-// 3. How do I reference the SizeInfo already present in the model?
-// 4. How to make regex identifiers?
-// 5. What is a containment reference?
+// multiply that somehow 
+// 3. I know now that references need to be by name, but can we maybe do a reference by something else?
+
+// POSSIBLE IMPROVEMENTS:
+// 1. add amount of toppings back to the model (but think about it)
+// 2. move toppings to an outer storage, maybe with its own file extension? 
+//but let it be a storage from which we take
+// 3. think about how we can derive vegan, vegetarian and haslactose from food groups, 
+// maybe food group should be separate model instead
+// 4. add differentiation for when we have 1 item and many (s ending for words)
+// 5.
 
 //PizzaPlace returns PizzaPlace:
 //	{PizzaPlace}
@@ -90,18 +118,9 @@ Topping returns Topping: name=STRING;
 //		('pizza' '(' pizza+=[Pizza|EString] ( "," pizza+=[Pizza|EString])* ')' )?
 //	'}';
 //
-enum Sizes returns Sizes:
-				Small =  'Small' | Medium = 'Medium' | Large = 'Large' | ExtraLarge = 'XL';
-
-enum Sauces returns Sauces:
-				BBQ = 'BBQ' | Tomato = 'Tomato' | Garlic = 'Garlic';
-
-enum DoughTypes returns DoughTypes:
-				NewHavenStyle = 'New Haven Style' | StLouisStyle = 'St. Louis Style' | Neapolitan = 'Neapolitan' | NewYorkStyle = 'New York Style';
-//
-//enum FoodGroup returns FoodGroup:
-//				vegetables = 'vegetables' | meats = 'meats' | chseeses = 'chseeses';
 //
 //enum ToppingAmount returns ToppingAmount:
 //				small = 'small' | normal = 'normal' | large = 'large';
 //
+
+FLOAT returns ecore::EFloat: INT '.' INT;

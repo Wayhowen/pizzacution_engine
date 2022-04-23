@@ -33,11 +33,6 @@
       <genEnumLiterals ecoreEnumLiteral="schema.ecore#//Sizes/Large"/>
       <genEnumLiterals ecoreEnumLiteral="schema.ecore#//Sizes/ExtraLarge"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="schema.ecore#//ToppingAmount">
-      <genEnumLiterals ecoreEnumLiteral="schema.ecore#//ToppingAmount/small"/>
-      <genEnumLiterals ecoreEnumLiteral="schema.ecore#//ToppingAmount/normal"/>
-      <genEnumLiterals ecoreEnumLiteral="schema.ecore#//ToppingAmount/large"/>
-    </genEnums>
     <genClasses ecoreClass="schema.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//NamedElement/name"/>
     </genClasses>
@@ -47,20 +42,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Pizza/sauce"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Pizza/dough"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Pizza/soldIn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference schema.ecore#//Pizza/size"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schema.ecore#//Pizza/sizeInfoReference"/>
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//Topping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Topping/onPizza"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Topping/foodGroup"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Topping/toppingAmount"/>
-    </genClasses>
-    <genClasses ecoreClass="schema.ecore#//Recipe">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Recipe/steps"/>
-    </genClasses>
-    <genClasses ecoreClass="schema.ecore#//Step">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Step/recipe"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Step/number"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Step/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Topping/price"/>
     </genClasses>
     <genClasses image="false" ecoreClass="schema.ecore#//Nutritions">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Nutritions/calories"/>
@@ -76,10 +63,15 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//PizzaPlace/pizzasAvailable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//PizzaPlace/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//PizzaPlace/sizesAvailable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schema.ecore#//PizzaPlace/toppingsAvailable"/>
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//SizeInfo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//SizeInfo/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//SizeInfo/serves"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//SizeInfo/priceMultiplier"/>
+    </genClasses>
+    <genClasses ecoreClass="schema.ecore#//SizeInfoReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//SizeInfoReference/sizeInfo"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
