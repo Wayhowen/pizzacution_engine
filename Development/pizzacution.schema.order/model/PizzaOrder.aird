@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_lGIvQMPxEeychMfWz5vShQ" selectedViews="_lJT_EMPxEeychMfWz5vShQ _lJvc4MPxEeychMfWz5vShQ _lJ4m0MPxEeychMfWz5vShQ _lKGCMMPxEeychMfWz5vShQ" version="15.0.0.202201261500">
+    <semanticResources>PizzaOrder.ecore</semanticResources>
+    <semanticResources>platform:/resource/pizzacution.schema/model/schema.ecore</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_lJT_EMPxEeychMfWz5vShQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_mSvFQMPxEeychMfWz5vShQ" name="PizzaOrder class diagram" repPath="#_mSP9EMPxEeychMfWz5vShQ" changeId="c08a5d1c-a27f-4be8-85d5-aadf0c3419c2">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="PizzaOrder.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_lJvc4MPxEeychMfWz5vShQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_lJ4m0MPxEeychMfWz5vShQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_lKGCMMPxEeychMfWz5vShQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_mSP9EMPxEeychMfWz5vShQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_mTDOUMPxEeychMfWz5vShQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_mTDOUcPxEeychMfWz5vShQ" type="Sirius" element="_mSP9EMPxEeychMfWz5vShQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_07I5EMPxEeychMfWz5vShQ" type="2003" element="_07CycMPxEeychMfWz5vShQ">
+          <children xmi:type="notation:Node" xmi:id="_07JgIMPxEeychMfWz5vShQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_07JgIcPxEeychMfWz5vShQ" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_07JgIsPxEeychMfWz5vShQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_07JgI8PxEeychMfWz5vShQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_07I5EcPxEeychMfWz5vShQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_07I5EsPxEeychMfWz5vShQ" x="258" y="132" width="120" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7dZ2wMPyEeychMfWz5vShQ" type="2003" element="_7dO3oMPyEeychMfWz5vShQ">
+          <children xmi:type="notation:Node" xmi:id="_7dad0MPyEeychMfWz5vShQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_7dad0cPyEeychMfWz5vShQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_7dad1MPyEeychMfWz5vShQ" type="3010" element="_7dTwIMPyEeychMfWz5vShQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_7dad1cPyEeychMfWz5vShQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7dad1sPyEeychMfWz5vShQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7dbE4MPyEeychMfWz5vShQ" type="3010" element="_7dUXMsPyEeychMfWz5vShQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_7dbE4cPyEeychMfWz5vShQ" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7dbE4sPyEeychMfWz5vShQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7dbE48PyEeychMfWz5vShQ" type="3010" element="_7dVlUMPyEeychMfWz5vShQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_7dbE5MPyEeychMfWz5vShQ" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7dbE5cPyEeychMfWz5vShQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7dbE5sPyEeychMfWz5vShQ" type="3010" element="_7dWMYcPyEeychMfWz5vShQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_7dbE58PyEeychMfWz5vShQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7dbE6MPyEeychMfWz5vShQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7dcTAMPyEeychMfWz5vShQ" type="3010" element="_7dWzccPyEeychMfWz5vShQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_7dcTAcPyEeychMfWz5vShQ" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7dcTAsPyEeychMfWz5vShQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7dcTA8PyEeychMfWz5vShQ" type="3010" element="_7dXagcPyEeychMfWz5vShQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_7dcTBMPyEeychMfWz5vShQ" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7dcTBcPyEeychMfWz5vShQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_7dad0sPyEeychMfWz5vShQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_7dad08PyEeychMfWz5vShQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7dZ2wcPyEeychMfWz5vShQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7dZ2wsPyEeychMfWz5vShQ" x="522" y="162"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_mTDOUsPxEeychMfWz5vShQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_u0ZSYMPzEeychMfWz5vShQ" type="4001" element="_u0PhYMPzEeychMfWz5vShQ" source="_07I5EMPxEeychMfWz5vShQ" target="_7dZ2wMPyEeychMfWz5vShQ">
+          <children xmi:type="notation:Node" xmi:id="_u0Z5cMPzEeychMfWz5vShQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u0Z5ccPzEeychMfWz5vShQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_u0Z5csPzEeychMfWz5vShQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u0Z5c8PzEeychMfWz5vShQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_u0Z5dMPzEeychMfWz5vShQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u0Z5dcPzEeychMfWz5vShQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_u0ZSYcPzEeychMfWz5vShQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_u0ZSYsPzEeychMfWz5vShQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u0ZSY8PzEeychMfWz5vShQ" points="[0, 0, -146, 0]$[146, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u0Z5dsPzEeychMfWz5vShQ" id="(1.0,0.45918367346938777)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u0Z5d8PzEeychMfWz5vShQ" id="(0.0,0.11363636363636363)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_mTghUMPxEeychMfWz5vShQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_mTghUcPxEeychMfWz5vShQ">
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_3mTpYMPyEeychMfWz5vShQ" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_7dUXMMPyEeychMfWz5vShQ" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_7dU-QMPyEeychMfWz5vShQ" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_IpfoIMP0EeychMfWz5vShQ" routingStyle="manhattan">
+          <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_IpfoIcP0EeychMfWz5vShQ" showIcon="false" labelExpression="service:render">
+            <labelFormat>bold</labelFormat>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </centerLabelStyleDescription>
+          <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_IpfoIsP0EeychMfWz5vShQ" labelSize="6" showIcon="false" labelExpression="service:eKeysLabel">
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </endLabelStyleDescription>
+        </computedStyleDescriptions>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_07CycMPxEeychMfWz5vShQ" name="Order" tooltipText="" outgoingEdges="_u0PhYMPzEeychMfWz5vShQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="PizzaOrder.ecore#//Order"/>
+      <semanticElements xmi:type="ecore:EClass" href="PizzaOrder.ecore#//Order"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_IpdL4MP0EeychMfWz5vShQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_7dO3oMPyEeychMfWz5vShQ" name="Pizza" tooltipText="" incomingEdges="_u0PhYMPzEeychMfWz5vShQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza"/>
+      <semanticElements xmi:type="ecore:EClass" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza"/>
+      <decorations xmi:type="viewpoint:Decoration" uid="_7dQs0MPyEeychMfWz5vShQ">
+        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
+      </decorations>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_7dQFwMPyEeychMfWz5vShQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_7dTwIMPyEeychMfWz5vShQ" name="/price : EFloat = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/price"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/price"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_7dUXMcPyEeychMfWz5vShQ" labelColor="39,76,114" labelAlignment="LEFT" description="_7dUXMMPyEeychMfWz5vShQ"/>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_7dUXMsPyEeychMfWz5vShQ" name="sauce : Sauces = tmt" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/sauce"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/sauce"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_7dU-QcPyEeychMfWz5vShQ" labelAlignment="LEFT" description="_7dU-QMPyEeychMfWz5vShQ">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_7dVlUMPyEeychMfWz5vShQ" name="dough : DoughTypes = nys" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/dough"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/dough"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_7dWMYMPyEeychMfWz5vShQ" labelAlignment="LEFT" description="_7dU-QMPyEeychMfWz5vShQ">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_7dWMYcPyEeychMfWz5vShQ" name=" toppings : Topping" tooltipText="">
+        <target xmi:type="ecore:EReference" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/toppings"/>
+        <semanticElements xmi:type="ecore:EReference" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/toppings"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_7dWzcMPyEeychMfWz5vShQ" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_7dWzccPyEeychMfWz5vShQ" name=" soldIn : PizzaPlace" tooltipText="">
+        <target xmi:type="ecore:EReference" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/soldIn"/>
+        <semanticElements xmi:type="ecore:EReference" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/soldIn"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_7dXagMPyEeychMfWz5vShQ" labelAlignment="LEFT" description="_3mTpYMPyEeychMfWz5vShQ" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_7dXagcPyEeychMfWz5vShQ" name=" sizeInfoReference : SizeInfoReference" tooltipText="">
+        <target xmi:type="ecore:EReference" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/sizeInfoReference"/>
+        <semanticElements xmi:type="ecore:EReference" href="platform:/resource/pizzacution.schema/model/schema.ecore#//Pizza/sizeInfoReference"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_7dYBkMPyEeychMfWz5vShQ" labelAlignment="LEFT" description="_3mTpYMPyEeychMfWz5vShQ" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_u0PhYMPzEeychMfWz5vShQ" name="[1..*] Pizzas" sourceNode="_07CycMPxEeychMfWz5vShQ" targetNode="_7dO3oMPyEeychMfWz5vShQ">
+      <target xmi:type="ecore:EReference" href="PizzaOrder.ecore#//Order/Pizzas"/>
+      <semanticElements xmi:type="ecore:EReference" href="PizzaOrder.ecore#//Order/Pizzas"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IpfoI8P0EeychMfWz5vShQ" description="_IpfoIMP0EeychMfWz5vShQ" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IpfoJcP0EeychMfWz5vShQ" showIcon="false">
+          <labelFormat>bold</labelFormat>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_IpfoJMP0EeychMfWz5vShQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_mSi4AMPxEeychMfWz5vShQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
+    <target xmi:type="ecore:EPackage" href="PizzaOrder.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
