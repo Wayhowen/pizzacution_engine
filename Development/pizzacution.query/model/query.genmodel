@@ -13,10 +13,37 @@
     <genClasses ecoreClass="query.ecore#//SelectQuery">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/from"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/whatClause"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/thatClause"/>
     </genClasses>
-    <genClasses ecoreClass="query.ecore#//allPizzas"/>
-    <genClasses ecoreClass="query.ecore#//whatClause"/>
-    <genClasses ecoreClass="query.ecore#//somePizzas"/>
+    <genClasses ecoreClass="query.ecore#//AllPizzas"/>
+    <genClasses ecoreClass="query.ecore#//WhatClause"/>
+    <genClasses ecoreClass="query.ecore#//SomePizzas"/>
+    <genClasses ecoreClass="query.ecore#//ThatClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//ThatClause/containsClause"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//ThatClause/CostClause"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//ThatClause/isServedClause"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//ContainsClause"/>
+    <genClasses ecoreClass="query.ecore#//HasClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//HasClause/toppingReference"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//DoesntHaveClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//DoesntHaveClause/toppingReference"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//ToppingReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//ToppingReference/topping"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//CostClause"/>
+    <genClasses ecoreClass="query.ecore#//IsServedClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//IsServedClause/pizzaPlaceReference"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//IsServedClause/sizeInfoReference"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//PizzaPlaceReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//PizzaPlaceReference/pizzaPlace"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//SizeInfoReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SizeInfoReference/sizeInfo"/>
+    </genClasses>
   </genPackages>
   <genPackages prefix="Schema" ecorePackage="../../pizzacution.schema/model/schema.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../pizzacution.schema/model/schema.ecore#//DoughTypes">

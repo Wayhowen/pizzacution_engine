@@ -3,17 +3,34 @@ grammar pizzacution.query.dsl.QueryLanguage with org.eclipse.xtext.common.Termin
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.example.org/query" as query
+//import "http://www.example.org/schema" as schema
+// TODO: fix some problems with imports
 
 
-SelectQuery returns query::SelectQuery: "I" "want" whatClause=whatClause;
+// TODO: we need to enfore that all that clauses are different
+SelectQuery returns query::SelectQuery: "I" "want" whatClause=WhatClause
+	"that" thatClause+=ThatClause
+;
 
-whatClause returns query::whatClause: allPizzas | somePizzas;
+WhatClause returns query::WhatClause: AllPizzas | SomePizzas;
 
-allPizzas returns query::allPizzas: "all" "pizzas" {query::allPizzas};
+AllPizzas returns query::AllPizzas: "all" "pizzas" {query::AllPizzas};
 
-somePizzas returns query::somePizzas: "some" "pizza" {query::somePizzas};
+SomePizzas returns query::SomePizzas: "a" "pizza" {query::SomePizzas};
 
+// TODO: we need to enforce statically, that two of the rules has to be different
+ThatClause returns query::ThatClause: containsClause+=ContainsClause ("and" containsClause+=ContainsClause)?;
 
+ContainsClause returns query::ContainsClause: HasClause | DoesntHaveClause;
 
+HasClause returns query::HasClause: "has" ;
 
+DoesntHaveClause returns query::DoesntHaveClause: "does" "not" "have" ;
+
+//toppingReference+=ToppingReference ("," toppingReference+=ToppingReference)*
+
+//ToppingReference returns query::ToppingReference: topping=[schema::Topping];
+
+// TODO: why doesnt referencing work? 
+// TODO: can I somehow reference pizzas by not only name but also sauce/dough without having them as separate models?
 

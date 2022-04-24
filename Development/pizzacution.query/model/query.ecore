@@ -4,9 +4,46 @@
   <eClassifiers xsi:type="ecore:EClass" name="SelectQuery">
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//Pizza"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="whatClause" lowerBound="1"
-        eType="#//whatClause" containment="true"/>
+        eType="#//WhatClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thatClause" upperBound="-1"
+        eType="#//ThatClause" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="allPizzas" eSuperTypes="#//whatClause"/>
-  <eClassifiers xsi:type="ecore:EClass" name="whatClause"/>
-  <eClassifiers xsi:type="ecore:EClass" name="somePizzas" eSuperTypes="#//whatClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AllPizzas" eSuperTypes="#//WhatClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WhatClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SomePizzas" eSuperTypes="#//WhatClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ThatClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containsClause" lowerBound="1"
+        upperBound="2" eType="#//ContainsClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CostClause" upperBound="2"
+        eType="#//CostClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isServedClause" eType="#//IsServedClause"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainsClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HasClause" eSuperTypes="#//ContainsClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toppingReference" lowerBound="1"
+        upperBound="-1" eType="#//ToppingReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoesntHaveClause" eSuperTypes="#//ContainsClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toppingReference" lowerBound="1"
+        upperBound="-1" eType="#//ToppingReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToppingReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topping" lowerBound="1"
+        eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//Topping"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CostClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IsServedClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pizzaPlaceReference" upperBound="-1"
+        eType="#//PizzaPlaceReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfoReference" upperBound="-1"
+        eType="#//SizeInfoReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PizzaPlaceReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pizzaPlace" lowerBound="1"
+        eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//PizzaPlace"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SizeInfoReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfo" lowerBound="1"
+        eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//SizeInfo"/>
+  </eClassifiers>
 </ecore:EPackage>

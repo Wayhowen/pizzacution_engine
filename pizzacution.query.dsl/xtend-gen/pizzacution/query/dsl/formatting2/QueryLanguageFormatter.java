@@ -11,17 +11,16 @@ import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 import pizzacution.query.SelectQuery;
-import pizzacution.query.dsl.services.QueryLanguageGrammarAccess;
-import pizzacution.query.whatClause;
+import pizzacution.query.WhatClause;
 
 @SuppressWarnings("all")
 public class QueryLanguageFormatter extends AbstractFormatter2 {
   @Inject
   @Extension
-  private QueryLanguageGrammarAccess _queryLanguageGrammarAccess;
+  private /* QueryLanguageGrammarAccess */Object _queryLanguageGrammarAccess;
   
   protected void _format(final SelectQuery selectQuery, @Extension final IFormattableDocument document) {
-    document.<whatClause>format(selectQuery.getWhatClause());
+    document.<WhatClause>format(selectQuery.getWhatClause());
   }
   
   public void format(final Object selectQuery, final IFormattableDocument document) {
