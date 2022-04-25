@@ -10,13 +10,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AllPizzas" eSuperTypes="#//WhatClause"/>
   <eClassifiers xsi:type="ecore:EClass" name="WhatClause"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SomePizzas" eSuperTypes="#//WhatClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SomePizza" eSuperTypes="#//WhatClause"/>
   <eClassifiers xsi:type="ecore:EClass" name="ThatClause">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="containsClause" lowerBound="1"
-        upperBound="2" eType="#//ContainsClause" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CostClause" upperBound="2"
-        eType="#//CostClause" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isServedClause" eType="#//IsServedClause"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thatDirective" lowerBound="1"
+        eType="#//ThatDirective" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContainsClause"/>
   <eClassifiers xsi:type="ecore:EClass" name="HasClause" eSuperTypes="#//ContainsClause">
@@ -31,12 +28,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="topping" lowerBound="1"
         eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//Topping"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CostClause"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CostDirective">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparativeOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsServedClause">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pizzaPlaceReference" upperBound="-1"
-        eType="#//PizzaPlaceReference" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfoReference" upperBound="-1"
-        eType="#//SizeInfoReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isServedDirective" lowerBound="1"
+        upperBound="2" eType="#//IsServedDirective" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PizzaPlaceReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizzaPlace" lowerBound="1"
@@ -45,5 +43,34 @@
   <eClassifiers xsi:type="ecore:EClass" name="SizeInfoReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfo" lowerBound="1"
         eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//SizeInfo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ThatDirective">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isServedClause" eType="#//IsServedClause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containsClause" upperBound="2"
+        eType="#//ContainsClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costClause" eType="#//CostClause"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsServedDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InClause" eSuperTypes="#//IsServedDirective">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfoReference" upperBound="-1"
+        eType="#//SizeInfoReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AtClause" eSuperTypes="#//IsServedDirective">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pizzaPlaceReference" upperBound="-1"
+        eType="#//PizzaPlaceReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComparativeOperator">
+    <eLiterals name="LESS_THAN"/>
+    <eLiterals name="LESS_THAN_EQUAL" value="1"/>
+    <eLiterals name="EQUAL" value="2"/>
+    <eLiterals name="NOT_EQUAL" value="3"/>
+    <eLiterals name="GREATER_THAN" value="4"/>
+    <eLiterals name="GREATER_THAN_OR_EQUAL" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CostClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costDirective" lowerBound="1"
+        upperBound="2" eType="#//CostDirective" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
