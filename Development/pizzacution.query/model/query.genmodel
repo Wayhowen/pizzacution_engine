@@ -5,81 +5,68 @@
     editDirectory="/pizzacution.query.edit/src-gen" editorDirectory="/pizzacution.query.editor/src-gen"
     modelPluginID="pizzacution.query" modelName="Query" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+    copyrightFields="false" usedGenPackages="../../pizzacution.schema/model/schema.genmodel#//schema"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>query.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Query" basePackage="pizzacution" disposableProviderFactory="true"
       ecorePackage="query.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="query.ecore#//ComparativeOperator">
+      <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/LESS_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/LESS_THAN_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/NOT_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/GREATER_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/GREATER_THAN_OR_EQUAL"/>
+    </genEnums>
     <genClasses ecoreClass="query.ecore#//SelectQuery">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/from"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/whatClause"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/thatClause"/>
     </genClasses>
-  </genPackages>
-  <genPackages prefix="Schema" ecorePackage="../../pizzacution.schema/model/schema.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../pizzacution.schema/model/schema.ecore#//DoughTypes">
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//DoughTypes/NewHavenStyle"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//DoughTypes/StLouisStyle"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//DoughTypes/Neapolitan"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//DoughTypes/NewYorkStyle"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../pizzacution.schema/model/schema.ecore#//Sauces">
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//Sauces/BBQ"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//Sauces/Tomato"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//Sauces/Garlic"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../pizzacution.schema/model/schema.ecore#//FoodGroup">
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//FoodGroup/vegetables"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//FoodGroup/meats"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//FoodGroup/chseeses"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../pizzacution.schema/model/schema.ecore#//Sizes">
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//Sizes/Small"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//Sizes/Medium"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//Sizes/Large"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//Sizes/ExtraLarge"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../pizzacution.schema/model/schema.ecore#//ToppingAmount">
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//ToppingAmount/small"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//ToppingAmount/normal"/>
-      <genEnumLiterals ecoreEnumLiteral="../../pizzacution.schema/model/schema.ecore#//ToppingAmount/large"/>
-    </genEnums>
-    <genClasses image="false" ecoreClass="../../pizzacution.schema/model/schema.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//NamedElement/name"/>
+    <genClasses ecoreClass="query.ecore#//AllPizzas"/>
+    <genClasses ecoreClass="query.ecore#//WhatClause"/>
+    <genClasses ecoreClass="query.ecore#//SomePizza"/>
+    <genClasses ecoreClass="query.ecore#//ThatClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//ThatClause/thatDirective"/>
     </genClasses>
-    <genClasses ecoreClass="../../pizzacution.schema/model/schema.ecore#//Pizza">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../pizzacution.schema/model/schema.ecore#//Pizza/toppings"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Pizza/price"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Pizza/size"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Pizza/sauce"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Pizza/dough"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../pizzacution.schema/model/schema.ecore#//Pizza/soldIn"/>
+    <genClasses ecoreClass="query.ecore#//ContainsClause"/>
+    <genClasses ecoreClass="query.ecore#//HasClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//HasClause/toppingReference"/>
     </genClasses>
-    <genClasses ecoreClass="../../pizzacution.schema/model/schema.ecore#//Topping">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../pizzacution.schema/model/schema.ecore#//Topping/pizza"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Topping/foodGroup"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Topping/toppingAmount"/>
+    <genClasses ecoreClass="query.ecore#//DoesntHaveClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//DoesntHaveClause/toppingReference"/>
     </genClasses>
-    <genClasses ecoreClass="../../pizzacution.schema/model/schema.ecore#//Recipe">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../pizzacution.schema/model/schema.ecore#//Recipe/steps"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Recipe/removeMe"/>
+    <genClasses ecoreClass="query.ecore#//ToppingReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//ToppingReference/topping"/>
     </genClasses>
-    <genClasses ecoreClass="../../pizzacution.schema/model/schema.ecore#//Step">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../pizzacution.schema/model/schema.ecore#//Step/recipe"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Step/number"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Step/description"/>
+    <genClasses ecoreClass="query.ecore#//CostDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute query.ecore#//CostDirective/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute query.ecore#//CostDirective/price"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../pizzacution.schema/model/schema.ecore#//Nutritions">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Nutritions/calories"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Nutritions/carbohydrates"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Nutritions/proteins"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Nutritions/fat"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Nutritions/hasLactose"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Nutritions/isVegetarian"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//Nutritions/isVegan"/>
+    <genClasses ecoreClass="query.ecore#//IsServedClause">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//IsServedClause/isServedDirective"/>
     </genClasses>
-    <genClasses ecoreClass="../../pizzacution.schema/model/schema.ecore#//PizzaPlace">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//PizzaPlace/address"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../pizzacution.schema/model/schema.ecore#//PizzaPlace/pizzasAvailable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../pizzacution.schema/model/schema.ecore#//PizzaPlace/name"/>
+    <genClasses ecoreClass="query.ecore#//PizzaPlaceReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//PizzaPlaceReference/pizzaPlace"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//SizeInfoReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SizeInfoReference/sizeInfo"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//ThatDirective">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//ThatDirective/isServedClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//ThatDirective/containsClause"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//ThatDirective/costClause"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//IsServedDirective"/>
+    <genClasses ecoreClass="query.ecore#//InClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//InClause/sizeInfoReference"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//AtClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//AtClause/pizzaPlaceReference"/>
+    </genClasses>
+    <genClasses ecoreClass="query.ecore#//CostClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//CostClause/costDirective"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

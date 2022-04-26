@@ -3,15 +3,13 @@
  */
 package pizzacution.schema.dsl.formatting2
 
-import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 import pizzacution.schema.PizzaPlace
-import pizzacution.schema.dsl.services.LanguageGrammarAccess
 
 class LanguageFormatter extends AbstractFormatter2 {
 	
-	@Inject extension LanguageGrammarAccess
+	//@Inject extension LanguageGrammarAccess
 
 	def dispatch void format(PizzaPlace pizzaPlace, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
