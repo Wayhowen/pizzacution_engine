@@ -4,6 +4,7 @@
     <semanticResources>query.ecore</semanticResources>
     <semanticResources>query.genmodel</semanticResources>
     <semanticResources>platform:/resource/pizzacution.schema/model/schema.ecore</semanticResources>
+    <semanticResources>platform:/resource/pizzacution.schema/model/schema.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_PP82cKhjEeyEb_fmEFDlAQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     </ownedViews>

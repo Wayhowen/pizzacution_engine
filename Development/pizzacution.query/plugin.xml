@@ -14,12 +14,4 @@
             genModel="model/query.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated query -->
-      <package
-            uri="http://www.example.org/schema"
-            class="schema.SchemaPackage"
-            genModel="model/query.genmodel"/>
-   </extension>
-
 </plugin>

@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 
-import pizzacution.schema.Pizza;
 import pizzacution.schema.PizzaPlace;
 import pizzacution.schema.SizeInfo;
 import pizzacution.schema.SizeInfoReference;
