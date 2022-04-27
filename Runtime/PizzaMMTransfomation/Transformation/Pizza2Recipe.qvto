@@ -1,0 +1,10 @@
+modeltype MMRecipe uses "http://www.pizzacution.org/recipe";
+modeltype MMPizza uses "http://www.example.org/schema";
+
+transformation Pizza2Recipe(in source: MMPizza, out target: MMRecipe);
+
+main() {
+	source.rootObjects()[Pizza] -> map Pizza2Recipe();
+}
+
+mapping MMPizza::Pizza :: Pizza2Recipe() : MMRecipe::Recipe {}

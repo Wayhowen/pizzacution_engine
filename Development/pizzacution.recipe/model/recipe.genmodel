@@ -9,7 +9,7 @@
   <genPackages prefix="Recipe" basePackage="pizzacution.recipe" disposableProviderFactory="true"
       ecorePackage="recipe.ecore#/">
     <genClasses ecoreClass="recipe.ecore#//Recipe">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/step"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/step"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Step/number"/>
