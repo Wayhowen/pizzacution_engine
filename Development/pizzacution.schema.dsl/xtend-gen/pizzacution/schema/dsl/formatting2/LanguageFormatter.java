@@ -3,7 +3,6 @@
  */
 package pizzacution.schema.dsl.formatting2;
 
-import com.google.inject.Inject;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -13,14 +12,9 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 import pizzacution.schema.Pizza;
 import pizzacution.schema.PizzaPlace;
-import pizzacution.schema.dsl.services.LanguageGrammarAccess;
 
 @SuppressWarnings("all")
 public class LanguageFormatter extends AbstractFormatter2 {
-  @Inject
-  @Extension
-  private LanguageGrammarAccess _languageGrammarAccess;
-  
   protected void _format(final PizzaPlace pizzaPlace, @Extension final IFormattableDocument document) {
     EList<Pizza> _pizzasAvailable = pizzaPlace.getPizzasAvailable();
     for (final Pizza pizza : _pizzasAvailable) {

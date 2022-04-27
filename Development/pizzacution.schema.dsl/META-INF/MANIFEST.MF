@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: pizzacution.schema.dsl
+Bundle-ManifestVersion: 2
+Bundle-Name: pizzacution.schema.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: pizzacution.schema.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: pizzacution.schema,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: pizzacution.schema.dsl.formatting2,
+ pizzacution.schema.dsl.services,
+ pizzacution.schema.dsl,
+ pizzacution.schema.dsl.validation,
+ pizzacution.schema.dsl.serializer,
+ pizzacution.schema.dsl.scoping,
+ pizzacution.schema.dsl.parser.antlr,
+ pizzacution.schema.dsl.generator,
+ pizzacution.schema.dsl.parser.antlr.internal,
+ pizzacution.schema.dsl.parser.antlr.lexer
+Import-Package: org.apache.log4j

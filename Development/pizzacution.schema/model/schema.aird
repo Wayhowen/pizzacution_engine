@@ -4,7 +4,11 @@
     <semanticResources>schema.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_wpSSUKhmEeyteJyinQWSdQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+<<<<<<< HEAD
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="d903a109-4236-4af1-a268-47bcb0753914">
+=======
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="6189ef40-c99d-48f3-9f56-381ab9963071">
+>>>>>>> main
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="schema.ecore#/"/>
       </ownedRepresentationDescriptors>
