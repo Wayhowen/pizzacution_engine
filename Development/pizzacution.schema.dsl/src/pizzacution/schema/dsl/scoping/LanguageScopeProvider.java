@@ -12,8 +12,8 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 
 import pizzacution.schema.PizzaPlace;
-import pizzacution.schema.SizeInfo;
-import pizzacution.schema.SizeInfoReference;
+import pizzacution.schema.Size;
+import pizzacution.schema.SizeReference;
 
 /**
  * This class contains custom scoping description.
@@ -26,20 +26,20 @@ public class LanguageScopeProvider extends AbstractLanguageScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 		// if it is the "what" reference of query
-		if (context instanceof SizeInfoReference) {
+		if (context instanceof SizeReference) {
 			// provide a custom scope
-			SizeInfoReference sizeInfoReference = (SizeInfoReference) context;
+			SizeReference sizeInfoReference = (SizeReference) context;
 			return getSizeInfoReferenceScope(sizeInfoReference);
 		}
 		
 		return super.getScope(context, reference);
 	}
 	
-	protected IScope getSizeInfoReferenceScope(SizeInfoReference sizeInfoReference) {
+	protected IScope getSizeInfoReferenceScope(SizeReference sizeInfoReference) {
 		EObject rootModelElement = EcoreUtil.getRootContainer(sizeInfoReference);
 
 		PizzaPlace pzplc = (PizzaPlace) rootModelElement;
-		List<SizeInfo> sizeInfos = pzplc.getSizesAvailable();
+		List<Size> sizeInfos = pzplc.getSizesAvailable();
 		return Scopes.scopeFor(sizeInfos);
 	}
 }

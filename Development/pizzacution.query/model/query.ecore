@@ -40,10 +40,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizzaPlace" lowerBound="1"
         eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//PizzaPlace"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SizeInfoReference">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfo" lowerBound="1"
-        eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//SizeInfo"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThatDirective">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isServedClause" eType="#//IsServedClause"
         containment="true"/>
@@ -54,8 +50,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsServedDirective"/>
   <eClassifiers xsi:type="ecore:EClass" name="InClause" eSuperTypes="#//IsServedDirective">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeInfoReference" upperBound="-1"
-        eType="#//SizeInfoReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sizeReference" upperBound="-1"
+        eType="ecore:EClass ../../pizzacution.schema/model/schema.ecore#//SizeReference"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AtClause" eSuperTypes="#//IsServedDirective">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizzaPlaceReference" upperBound="-1"

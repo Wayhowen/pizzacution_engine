@@ -50,9 +50,6 @@
     <genClasses ecoreClass="query.ecore#//PizzaPlaceReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//PizzaPlaceReference/pizzaPlace"/>
     </genClasses>
-    <genClasses ecoreClass="query.ecore#//SizeInfoReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SizeInfoReference/sizeInfo"/>
-    </genClasses>
     <genClasses ecoreClass="query.ecore#//ThatDirective">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//ThatDirective/isServedClause"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//ThatDirective/containsClause"/>
@@ -60,7 +57,7 @@
     </genClasses>
     <genClasses ecoreClass="query.ecore#//IsServedDirective"/>
     <genClasses ecoreClass="query.ecore#//InClause">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//InClause/sizeInfoReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//InClause/sizeReference"/>
     </genClasses>
     <genClasses ecoreClass="query.ecore#//AtClause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference query.ecore#//AtClause/pizzaPlaceReference"/>

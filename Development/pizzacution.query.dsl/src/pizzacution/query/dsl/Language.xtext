@@ -9,7 +9,7 @@ import "http://www.example.org/schema" as schema
 
 // TODO: we need to enfore that all that clauses are different
 SelectQuery returns query::SelectQuery: "I" "want" whatClause=WhatClause
-	thatClause+=ThatClause ("and" thatClause+=ThatClause)
+	thatClause+=ThatClause ("and" thatClause+=ThatClause)?
 ;
 
 WhatClause returns query::WhatClause: AllPizzas | SomePizzas;
@@ -46,12 +46,13 @@ IsServedDirective returns query::IsServedDirective: InClause | AtClause;
 // TODO: add referencing once fixed
 AtClause returns query::AtClause: "at" pizzaPlaceReference+=PizzaPlaceReference ("," pizzaPlaceReference+=PizzaPlaceReference)?;
 
-PizzaPlaceReference returns query::PizzaPlaceReference: {query::PizzaPlaceReference};
+// QUESTION: can we somehow overcome the issue of settings the reference with STRING instead of ID?
+PizzaPlaceReference returns query::PizzaPlaceReference: pizzaPlace=[schema::PizzaPlace];
 
 // TODO: add referencing once fixed
-InClause returns query::InClause: "in" sizeInfoReference+=SizeInfoReference ("," sizeInfoReference+=SizeInfoReference)?;
+InClause returns query::InClause: "in" sizeReference+=SizeReference ("," sizeReference+=SizeReference)?;
 
-SizeInfoReference returns query::SizeInfoReference: {query::SizeInfoReference};
+SizeReference returns schema::SizeReference: {schema::SizeReference};
 
 //toppingReference+=ToppingReference ("," toppingReference+=ToppingReference)*
 
