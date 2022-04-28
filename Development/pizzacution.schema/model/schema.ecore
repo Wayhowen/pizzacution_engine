@@ -56,12 +56,11 @@
     <eLiterals name="Large" value="2" literal="l"/>
     <eLiterals name="ExtraLarge" value="3" literal="xl"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PizzaPlace">
+  <eClassifiers xsi:type="ecore:EClass" name="PizzaPlace" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizzasAvailable" upperBound="-1"
         eType="#//Pizza" containment="true" eOpposite="#//Pizza/soldIn"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sizesAvailable" lowerBound="1"
         upperBound="-1" eType="#//SizeInfo" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toppingsAvailable" upperBound="-1"
