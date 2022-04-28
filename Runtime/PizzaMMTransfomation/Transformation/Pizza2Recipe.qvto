@@ -7,4 +7,45 @@ main() {
 	source.rootObjects()[Pizza] -> map Pizza2Recipe();
 }
 
-mapping MMPizza::Pizza :: Pizza2Recipe() : MMRecipe::Recipe {}
+mapping MMPizza::Pizza :: Pizza2Recipe() : MMRecipe::Recipe {
+	step := self -> map Pizza2Step();
+}
+
+//mapping MMPizza::Topping :: Toppings2Step(): MMRecipe :: Step 
+//	when{self.foodGroup != null}{
+//		description := 
+//	
+//}
+
+mapping MMPizza::Pizza :: Pizza2Step(): MMRecipe :: Step
+	when {self.dough != null and self.sauce !=null and self.toppings != null;} {
+		description := self.prepareDough() + " " + self.putSauce();		
+}
+
+helper MMPizza::NamedElement :: getPizzaName(): String {
+	return "Pizza " + self.name;
+}
+
+helper MMPizza::Pizza :: prepareDough(): String {
+	return "Get x amount of " + self.dough.toString() + " dough"; 
+}
+
+ helper MMPizza::Pizza :: putSauce(): String {
+ 	return "Take x amount of " + self.sauce.toString() + "sauce and place it on the dough";
+ }
+ 
+ helper MMPizza::Topping :: addToppings(): String {
+ 	return "Place x amount of " + self.foodGroup.toString();
+ }
+// 
+// helper MMPizza::Pizza :: addMeat(): String {
+// 	return "Place x amount of ";
+// }
+// 
+// helper MMPizza::Pizza :: addVegetables(): String{
+// 	return "";
+// }
+// 
+//  helper MMPizza::Pizza :: addCheese(): String{
+// 	return "";
+// }
