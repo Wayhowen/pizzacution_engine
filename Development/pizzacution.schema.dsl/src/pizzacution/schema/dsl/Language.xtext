@@ -10,18 +10,16 @@ PizzaPlace: "We" "are" name=ID "," "and" "we" "are" "located" "at" address=STRIN
 	"We" "offer" "the" "following" "pizzas:" pizzasAvailable+=Pizza ("," pizzasAvailable+=Pizza)* "."
 ;
 
-// TODO: we need to add size I think, discuss with Christoph
-SizeInfo returns SizeInfo: name=ID "that" "serves" serves=INT "people" "and" "multiplies" "the" "price" "by" priceMultiplier=FLOAT;
+SizeInfo returns Size: name=ID "that" "serves" serves=INT "people" "and" "multiplies" "the" "price" "by" priceMultiplier=FLOAT;
 
-// TODO: why is bidirectional reference a problem?
 Pizza returns Pizza: name=STRING "pizza"
-	"in" "sizes" sizeInfoReference+=SizeInfoReference ("," sizeInfoReference+=SizeInfoReference)*
+	"in" "sizes" sizeReference+=SizeReference ("," sizeReference+=SizeReference)*
 	"on" dough=DoughTypes "dough"
 	"with" sauce=Sauces "sauce"
 	"and" toppings+=[Topping] ("," toppings+=[Topping])* "toppings"
 ;
 
-SizeInfoReference: sizeInfo=[SizeInfo];
+SizeReference: size=[Size];
 
 Topping returns Topping: name=ID "which" "have" 
 		calories=INT "calories" ","
@@ -31,9 +29,6 @@ Topping returns Topping: name=ID "which" "have"
 		"belongs" "to" foodGroup=FoodGroup "food" "group"
 		"and" "costs" price=FLOAT
 ;
-
-enum Sizes returns Sizes:
-				Small =  'Small' | Medium = 'Medium' | Large = 'Large' | ExtraLarge = 'XL';
 
 enum Sauces returns Sauces:
 				BBQ = 'BBQ' | Tomato = 'Tomato' | Garlic = 'Garlic';
@@ -48,7 +43,6 @@ enum FoodGroup returns FoodGroup:
 // Then we could easily extend the enums 
 // 2. How do we generate the pizza in a couple of different sizes? Like let's say I declred a pizza that is "in all sizes" and then 
 // multiply that somehow 
-// 3. I know now that references need to be by name, but can we maybe do a reference by something else?
 
 // POSSIBLE IMPROVEMENTS:
 // 1. add amount of toppings back to the model (but think about it)
@@ -59,68 +53,5 @@ enum FoodGroup returns FoodGroup:
 // 4. add differentiation for when we have 1 item and many (s ending for words)
 // 5.
 
-//PizzaPlace returns PizzaPlace:
-//	{PizzaPlace}
-//	'PizzaPlace'
-//	name=EString
-//	'{'
-//		('address' address=EString)?
-//		('pizzasAvailable' '{' pizzasAvailable+=Pizza ( "," pizzasAvailable+=Pizza)* '}' )?
-//	'}';
-//
-//
-//
-//EString returns ecore::EString:
-//	STRING | ID;
-//
-//Pizza returns Pizza:
-//	(hasLactose?='hasLactose')?
-//	(isVegetarian?='isVegetarian')?
-//	(isVegan?='isVegan')?
-//	'Pizza'
-//	name=EString
-//	'{'
-//		('calories' calories=EInt)?
-//		('carbohydrates' carbohydrates=EFloat)?
-//		('proteins' proteins=EFloat)?
-//		('fat' fat=EFloat)?
-//		('price' price=EInt)?
-//		('size' size=Sizes)?
-//		('sauce' sauce=Sauces)?
-//		('dough' dough=DoughTypes)?
-//		('toppings' '(' toppings+=[Topping|EString] ( "," toppings+=[Topping|EString])* ')' )?
-//		'soldIn' '(' soldIn+=[PizzaPlace|EString] ( "," soldIn+=[PizzaPlace|EString])* ')' 
-//	'}';
-//
-//EInt returns ecore::EInt:
-//	'-'? INT;
-//
-//EFloat returns ecore::EFloat:
-//	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
-//
-//EBoolean returns ecore::EBoolean:
-//	'true' | 'false';
-//
-//Topping returns Topping:
-//	{Topping}
-//	(hasLactose?='hasLactose')?
-//	(isVegetarian?='isVegetarian')?
-//	(isVegan?='isVegan')?
-//	'Topping'
-//	name=EString
-//	'{'
-//		('calories' calories=EInt)?
-//		('carbohydrates' carbohydrates=EFloat)?
-//		('proteins' proteins=EFloat)?
-//		('fat' fat=EFloat)?
-//		('foodGroup' foodGroup=FoodGroup)?
-//		('toppingAmount' toppingAmount=ToppingAmount)?
-//		('pizza' '(' pizza+=[Pizza|EString] ( "," pizza+=[Pizza|EString])* ')' )?
-//	'}';
-//
-//
-//enum ToppingAmount returns ToppingAmount:
-//				small = 'small' | normal = 'normal' | large = 'large';
-//
 
 FLOAT returns ecore::EFloat: INT '.' INT;

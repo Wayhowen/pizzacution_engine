@@ -50,9 +50,9 @@ AtClause returns query::AtClause: "at" pizzaPlaceReference+=PizzaPlaceReference 
 PizzaPlaceReference returns query::PizzaPlaceReference: pizzaPlace=[schema::PizzaPlace];
 
 // TODO: add referencing once fixed
-InClause returns query::InClause: "in" sizeInfoReference+=SizeInfoReference ("," sizeInfoReference+=SizeInfoReference)?;
+InClause returns query::InClause: "in" sizeReference+=SizeReference ("," sizeReference+=SizeReference)?;
 
-SizeInfoReference returns query::SizeInfoReference: {query::SizeInfoReference};
+SizeReference returns schema::SizeReference: {schema::SizeReference};
 
 //toppingReference+=ToppingReference ("," toppingReference+=ToppingReference)*
 
