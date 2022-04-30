@@ -15,7 +15,6 @@
       <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/LESS_THAN"/>
       <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/LESS_THAN_EQUAL"/>
       <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/EQUAL"/>
-      <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/NOT_EQUAL"/>
       <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/GREATER_THAN"/>
       <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/GREATER_THAN_OR_EQUAL"/>
     </genEnums>

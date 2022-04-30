@@ -62,7 +62,6 @@
     <eLiterals name="LESS_THAN"/>
     <eLiterals name="LESS_THAN_EQUAL" value="1"/>
     <eLiterals name="EQUAL" value="2"/>
-    <eLiterals name="NOT_EQUAL" value="3"/>
     <eLiterals name="GREATER_THAN" value="4"/>
     <eLiterals name="GREATER_THAN_OR_EQUAL" value="5"/>
   </eClassifiers>
