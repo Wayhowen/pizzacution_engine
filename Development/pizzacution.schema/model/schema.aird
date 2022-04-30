@@ -4,7 +4,7 @@
     <semanticResources>schema.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_wpSSUKhmEeyteJyinQWSdQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="41c709d8-52df-474a-886f-efd42ad586b9">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ws9RYKhmEeyteJyinQWSdQ" name="schema package entities" repPath="#_ws6OEKhmEeyteJyinQWSdQ" changeId="9eb88eba-c8ac-41fa-8786-b264982fb64d">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="schema.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -799,8 +799,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_aOS7gMCaEeyskOYywsTirg" name="[0..*] onPizza - [0..*] toppings" sourceNode="_M1mXEqhnEeyteJyinQWSdQ" targetNode="_JnACMKhpEeyUir8XZX5MtQ">
       <target xmi:type="ecore:EReference" href="schema.ecore#//Pizza/toppings"/>
-      <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Topping/onPizza"/>
       <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Pizza/toppings"/>
+      <semanticElements xmi:type="ecore:EReference" href="schema.ecore#//Topping/onPizza"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_aOTikMCaEeyskOYywsTirg" targetArrow="NoDecoration">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_aOTikcCaEeyskOYywsTirg" showIcon="false"/>

@@ -4,12 +4,11 @@ grammar pizzacution.query.dsl.Language with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.example.org/query" as query
 import "http://www.example.org/schema" as schema
-// TODO: fix some problems with imports
 
 
 // TODO: we need to enfore that all that clauses are different
 SelectQuery returns query::SelectQuery: "I" "want" whatClause=WhatClause
-	thatClause+=ThatClause ("and" thatClause+=ThatClause)?
+	thatClause+=ThatClause ("and" thatClause+=ThatClause)*
 ;
 
 WhatClause returns query::WhatClause: AllPizzas | SomePizzas;
@@ -18,7 +17,7 @@ AllPizzas returns query::AllPizzas: "all" "pizzas" {query::AllPizzas};
 
 SomePizzas returns query::SomePizza: "a" "pizza" {query::SomePizza};
 
-// TODO: we need to enforce statically, that two of the rules has to be different
+// TODO: we need to enforce statically, that all of the directives has to be different
 ThatClause returns query::ThatClause: "that" thatDirective=ThatDirective;
 
 // TODO: in the future we could add boolean logic here 
@@ -30,39 +29,45 @@ ThatDirective returns query::ThatDirective:
 
 ContainsClause returns query::ContainsClause: HasClause | DoesntHaveClause;
 
-HasClause returns query::HasClause: "has" ;
+HasClause returns query::HasClause: "has" toppingReference+=ToppingReference ("," toppingReference+=ToppingReference)*;
 
-DoesntHaveClause returns query::DoesntHaveClause: "does" "not" "have" ;
+DoesntHaveClause returns query::DoesntHaveClause: "does" "not" "have" toppingReference+=ToppingReference ("," toppingReference+=ToppingReference)*;
 
-CostClause returns query::CostClause: "costs" costDirective+=CostDirective ("and" costDirective+=CostDirective)?;
+ToppingReference returns query::ToppingReference: topping=[schema::Topping];
+
+// TODO: ensure that we cannot say both precisely and less than and so on
+CostClause returns query::CostClause: "costs" costDirective+=CostDirective ("and" costDirective+=CostDirective)? "dkk";
 
 CostDirective returns query::CostDirective: operator=ComparativeOperator price=FLOAT;
 
-IsServedClause returns query::IsServedClause: "is" "served" isServedDirective+=IsServedDirective ("," isServedDirective+=IsServedDirective)?;
+IsServedClause returns query::IsServedClause: "is" "served" isServedDirective+=IsServedDirective ("," isServedDirective+=IsServedDirective)*;
 
 // TODO: ensure that both directives are different
+// ensure only 2 different can be present
 IsServedDirective returns query::IsServedDirective: InClause | AtClause;
 
-// TODO: add referencing once fixed
-AtClause returns query::AtClause: "at" pizzaPlaceReference+=PizzaPlaceReference ("," pizzaPlaceReference+=PizzaPlaceReference)?;
+// TODO: ensure that we dont have multiple same references
+// TODO: Ensure we have at clause at all times
+AtClause returns query::AtClause: "at" pizzaPlaceReference+=PizzaPlaceReference ("or" pizzaPlaceReference+=PizzaPlaceReference)*;
 
-// QUESTION: can we somehow overcome the issue of settings the reference with STRING instead of ID?
 PizzaPlaceReference returns query::PizzaPlaceReference: pizzaPlace=[schema::PizzaPlace];
 
 // TODO: add referencing once fixed
-InClause returns query::InClause: "in" sizeReference+=SizeReference ("," sizeReference+=SizeReference)?;
+InClause returns query::InClause: "in" sizeReference+=SizeReference ("," sizeReference+=SizeReference)* "sizes";
 
-SizeReference returns schema::SizeReference: {schema::SizeReference};
-
-//toppingReference+=ToppingReference ("," toppingReference+=ToppingReference)*
-
-//ToppingReference returns query::ToppingReference: topping=[schema::Topping];
-
-// TODO: why doesnt referencing work? 
-// TODO: can I somehow reference pizzas by not only name but also sauce/dough without having them as separate models?
+SizeReference returns schema::SizeReference: size=[schema::Size];
 
 enum ComparativeOperator returns query::ComparativeOperator:
-	LESS_THAN = "<" | LESS_THAN_EQUAL = "<=" | EQUAL = "=" | NOT_EQUAL = "!=" | GREATER_THAN = ">" | GREATER_THAN_OR_EQUAL = ">="
+	LESS_THAN = "less than" | LESS_THAN_EQUAL = "less or equal to" | EQUAL = "precisely" | GREATER_THAN = "more than" | GREATER_THAN_OR_EQUAL = "more or equal to"
 ;
 
 FLOAT returns ecore::EFloat: INT '.' INT;
+
+// Questions:
+// 1. should we move nutritions to a new model that has references from other places? then we could add
+// a logic that allows to define what nutritions we want?
+// 2. // QUESTION: can we somehow overcome the issue of settings the reference with STRING instead of ID?
+// its specific to pzplc reference
+
+// possible additions:
+// possibility to specify pizza by nutritions

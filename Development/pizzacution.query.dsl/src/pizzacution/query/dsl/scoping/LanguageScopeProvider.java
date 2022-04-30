@@ -3,14 +3,29 @@
  */
 package pizzacution.query.dsl.scoping;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 
+import pizzacution.query.AtClause;
+import pizzacution.query.IsServedClause;
+import pizzacution.query.IsServedDirective;
 import pizzacution.query.PizzaPlaceReference;
 import pizzacution.query.SelectQuery;
+import pizzacution.query.ThatClause;
+import pizzacution.query.ThatDirective;
+import pizzacution.query.ToppingReference;
+import pizzacution.schema.PizzaPlace;
+import pizzacution.schema.Size;
+import pizzacution.schema.SizeReference;
+import pizzacution.schema.Sizes;
+import pizzacution.schema.Topping;
 
 /**
  * This class contains custom scoping description.
@@ -19,34 +34,90 @@ import pizzacution.query.SelectQuery;
  * on how and when to use it.
  */
 public class LanguageScopeProvider extends AbstractLanguageScopeProvider {
-//	@Override
-//	public IScope getScope(EObject context, EReference reference) {
-//		// if it is the "what" reference of query
-//		if (context instanceof PizzaPlaceReference) {
-//			// provide a custom scope
-//			PizzaPlaceReference pizzaPlaceReference = (PizzaPlaceReference) context;
-//			return Scopes.scopeFor(pizzaPlaceReference.getPizzaPlace());
-////			return getPizzaPlaceReferenceScope(pizzaPlaceReference);
-//		}
-//		
-//		return super.getScope(context, reference);
-//	}
-//	
-//	protected IScope getPizzaPlaceReferenceScope(PizzaPlaceReference pizzaPlaceReference) {
-//		// Get the root model element via reflection on the model
-//		EObject rootModelElement = EcoreUtil.getRootContainer(pizzaPlaceReference);
-//		
-//		if (rootModelElement instanceof SelectQuery) {
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		// if it is the "what" reference of query
+		if (context instanceof SizeReference) {
+			// provide a custom scope
+			SizeReference sizeReference = (SizeReference) context;
+			return getSizes(sizeReference);
+		} else if (context instanceof ToppingReference) {
+			ToppingReference toppingReference = (ToppingReference) context;
+			return getToppings(toppingReference);
+		}
+		
+		return super.getScope(context, reference);
+	}
+
+	protected IScope getSizes(SizeReference sizeReference) {
+		// Get the root model element via reflection on the model
+		EObject rootModelElement = EcoreUtil.getRootContainer(sizeReference);
+		
+		if (rootModelElement instanceof SelectQuery) {
 //			// Find the table referenced in the select query's from clause
-//			SelectQuery selectQuery = (SelectQuery) rootModelElement;
-//			FromClause fromClause = selectQuery.getFromClause();
-//			
-//			Table table = fromClause.getTable();
-//			List<Column> columns = table.getColumns();
-//			
-//			return Scopes.scopeFor(columns);
-//		}
-//		
-//		return null;
-//	}
+			SelectQuery selectQuery = (SelectQuery) rootModelElement;
+			List<ThatClause> thatClauses = selectQuery.getThatClause();
+			for (ThatClause thatClause : thatClauses) {
+				ThatDirective thatDirective = thatClause.getThatDirective();
+				IsServedClause isServedClause = thatDirective.getIsServedClause();
+				if (isServedClause != null) {
+					List<IsServedDirective> isServedDirectives = isServedClause.getIsServedDirective();
+					for (IsServedDirective isServedDirective : isServedDirectives) {
+						if (isServedDirective instanceof AtClause) {
+							AtClause atClause = (AtClause) isServedDirective;
+							List<PizzaPlaceReference> pzplcRefs = atClause.getPizzaPlaceReference();
+							
+							List<Size> sizes = new ArrayList();
+							for (PizzaPlaceReference pzplcRef : pzplcRefs) {
+								PizzaPlace pzplc = pzplcRef.getPizzaPlace();
+								List<Size> availableSizes = pzplc.getSizesAvailable();
+								
+								for (Size s : availableSizes) {
+									sizes.add(s);
+								}
+							}
+							return Scopes.scopeFor(sizes);
+						}
+					}
+				}
+			}
+		}
+		return Scopes.scopeFor(new ArrayList());
+	}
+	
+	protected IScope getToppings(ToppingReference toppingReference) {
+		// Get the root model element via reflection on the model
+		EObject rootModelElement = EcoreUtil.getRootContainer(toppingReference);
+		
+		if (rootModelElement instanceof SelectQuery) {
+//			// Find the table referenced in the select query's from clause
+			SelectQuery selectQuery = (SelectQuery) rootModelElement;
+			List<ThatClause> thatClauses = selectQuery.getThatClause();
+			for (ThatClause thatClause : thatClauses) {
+				ThatDirective thatDirective = thatClause.getThatDirective();
+				IsServedClause isServedClause = thatDirective.getIsServedClause();
+				if (isServedClause != null) {
+					List<IsServedDirective> isServedDirectives = isServedClause.getIsServedDirective();
+					for (IsServedDirective isServedDirective : isServedDirectives) {
+						if (isServedDirective instanceof AtClause) {
+							AtClause atClause = (AtClause) isServedDirective;
+							List<PizzaPlaceReference> pzplcRefs = atClause.getPizzaPlaceReference();
+							
+							List<Topping> toppings = new ArrayList();
+							for (PizzaPlaceReference pzplcRef : pzplcRefs) {
+								PizzaPlace pzplc = pzplcRef.getPizzaPlace();
+								List<Topping> availableToppings = pzplc.getToppingsAvailable();
+								
+								for (Topping t : availableToppings) {
+									toppings.add(t);
+								}
+							}
+							return Scopes.scopeFor(toppings);
+						}
+					}
+				}
+			}
+		}
+		return Scopes.scopeFor(new ArrayList());
+	}
 }
