@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="graphical" version="12.0.0.2017041100">
+  <ownedViewpoints name="Pizzaplace Viewpoint" modelFileExtension="schema">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Pizza Order Viewpoint" domainClass="schema::PizzaPlace" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Topping Node" domainClass="schema::Topping">
+          <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <containerMappings name="Pizza Container" domainClass="schema::Pizza" dropDescriptions="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Order%20Viewpoint']/@defaultLayer/@toolSections.0/@ownedTools[name='Topping%20into%20Pizza%20Drop']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" widthComputationExpression="2" heightComputationExpression="2">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </containerMappings>
+        <toolSections>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Pizza Creation Tool" containerMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Order%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema.Pizza" referenceName="pizzasAvailable">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Pizza Order"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Topping Creation Tool" nodeMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Order%20Viewpoint']/@defaultLayer/@nodeMappings[name='Topping%20Node']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema.Topping" referenceName="toppingsAvailable"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="Topping into Pizza Drop" mappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Order%20Viewpoint']/@defaultLayer/@nodeMappings[name='Topping%20Node']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="pizzacution.graphical.Services"/>
+  </ownedViewpoints>
+</description:Group>
