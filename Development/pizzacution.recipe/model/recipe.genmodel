@@ -10,8 +10,8 @@
       ecorePackage="recipe.ecore#/">
     <genClasses ecoreClass="recipe.ecore#//Recipe">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/basePreparation"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/addToppings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Recipe/recipeName"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/addtoppings"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//PrepareBase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//PrepareBase/description"/>

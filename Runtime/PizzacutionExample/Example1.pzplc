@@ -1,0 +1,13 @@
+We are "Luigis Pizza", and we are located at "some adddress".
+We offer following sizes: 
+	s that serves 4 people and multiplies the price by 1.2,
+	m that serves 7 people and multiplies the price by 1.7,
+	l that serves 10 people and multiplies the price by 2.0.
+We have following toppings:
+	Shrooms which have 1 calories, 2.2 carbs, 3.3 proteins, 4.4 fat and belongs to vegetables food group and costs 1.2,
+	Ham which have 11 calories, 22.22 carbs, 33.33 proteins, 44.44 fat and belongs to meats food group and costs 1.29,
+	Pineapple which have 69 calories, 420.420 carbs, 12.37 proteins, 77.77 fat and belongs to vegetables food group and costs 3.1.
+We offer the following pizzas: 
+ 	"Luigi" pizza in sizes s, l on Neapolitan dough with BBQ sauce and Pineapple, Ham toppings,
+	"Mario" pizza in sizes l on St. Louis Style dough with BBQ sauce and Shrooms, Ham toppings.
+
