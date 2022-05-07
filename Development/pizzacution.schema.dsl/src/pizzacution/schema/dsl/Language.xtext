@@ -16,10 +16,12 @@ Pizza returns Pizza: name=STRING "pizza"
 	"in" "sizes" sizeReference+=SizeReference ("," sizeReference+=SizeReference)*
 	"on" dough=DoughTypes "dough"
 	"with" sauce=Sauces "sauce"
-	"and" toppings+=[Topping] ("," toppings+=[Topping])* "toppings"
+	"and" toppingReferences+=ToppingReference ("," toppingReferences+=ToppingReference)* "toppings"
 ;
 
 SizeReference: size=[Size];
+
+ToppingReference: topping=[Topping];
 
 Topping returns Topping: name=ID "which" "have" 
 		calories=INT "calories" ","

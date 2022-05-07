@@ -13,8 +13,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pizza" eSuperTypes="#//NamedElement #//Nutritions">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toppings" upperBound="-1"
-        eType="#//Topping" eOpposite="#//Topping/onPizza"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" lowerBound="1" eType="#//Sauces"
@@ -25,17 +23,16 @@
         eType="#//PizzaPlace" eOpposite="#//PizzaPlace/pizzasAvailable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sizeReference" lowerBound="1"
         upperBound="-1" eType="#//SizeReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toppingReferences" lowerBound="1"
+        upperBound="-1" eType="#//ToppingReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement #//Nutritions">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="NoSameToppingsDefinedTwice NoSameToppingDefinedTwiceWithinAPizza"/>
+      <details key="constraints" value="NoSameToppingsDefinedTwice"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="NoSameToppingsDefinedTwice" value="Tuple {&#xA;&#x9;message : String = name + ' should not be defined twice',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).toppingsAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(t | t &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(topping | self.name &lt;> topping.name)&#xA;}.status"/>
-      <details key="NoSameToppingDefinedTwiceWithinAPizza" value="Tuple {&#xA;&#x9;message : String = self.name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).sizeReference -> &#xA;&#x9;&#x9;&#x9;&#x9;select(sr | sr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(sizeRef | self.size &lt;> sizeRef.size)&#xA;}.status"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onPizza" upperBound="-1"
-        eType="#//Pizza" eOpposite="#//Pizza/toppings"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" eType="#//FoodGroup"
         defaultValueLiteral="veg"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -106,8 +103,18 @@
       <details key="constraints" value="NoSameSizeReferenceDefinedTwice"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="NoSameSizeReferenceDefinedTwice" value="Tuple {&#xA;&#x9;message : String = 'Size' + self.size.oclAsType(Size).name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).sizeReference -> &#xA;&#x9;&#x9;&#x9;&#x9;select(sr | sr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(sizeRef | self.size &lt;> sizeRef.size)&#xA;}.status"/>
+      <details key="NoSameSizeReferenceDefinedTwice" value="Tuple {&#xA;&#x9;message : String = 'Size ' + self.size.oclAsType(Size).name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).sizeReference -> &#xA;&#x9;&#x9;&#x9;&#x9;select(sr | sr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(sizeRef | self.size &lt;> sizeRef.size)&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="size" lowerBound="1" eType="#//Size"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToppingReference">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameSizeReferenceDefinedTwice"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameSizeReferenceDefinedTwice" value="Tuple {&#xA;&#x9;message : String = self.topping.oclAsType(Topping).name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).toppingReferences -> &#xA;&#x9;&#x9;&#x9;&#x9;select(tr | tr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(toppingRef | self.topping &lt;> toppingRef.topping)&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topping" lowerBound="1"
+        eType="#//Topping"/>
   </eClassifiers>
 </ecore:EPackage>
