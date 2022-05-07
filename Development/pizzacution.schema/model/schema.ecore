@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="schema" nsURI="http://www.example.org/schema" nsPrefix="schema">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pizza" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toppings" upperBound="-1"
         eType="#//Topping" eOpposite="#//Topping/onPizza"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" unique="false" lowerBound="1"
-        eType="#//Sauces" defaultValueLiteral="tmt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" lowerBound="1" eType="#//Sauces"
+        defaultValueLiteral="tmt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dough" lowerBound="1" eType="#//DoughTypes"
         defaultValueLiteral="nys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="soldIn" lowerBound="1"
@@ -21,8 +29,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement #//Nutritions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="onPizza" upperBound="-1"
         eType="#//Pizza" eOpposite="#//Pizza/toppings"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" ordered="false"
-        unique="false" eType="#//FoodGroup" defaultValueLiteral="veg"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" eType="#//FoodGroup"
+        defaultValueLiteral="veg"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DoughTypes">
@@ -37,13 +45,19 @@
     <eLiterals name="Garlic" value="2" literal="glc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Nutritions" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calories" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="carbohydrates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proteins" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasLactose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegetarian" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegan" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calories" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="carbohydrates" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proteins" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fat" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasLactose" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegetarian" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegan" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FoodGroup">
     <eLiterals name="vegetables" literal="veg"/>
@@ -57,6 +71,12 @@
     <eLiterals name="ExtraLarge" value="3" literal="xl"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PizzaPlace" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameToppingsDefined2"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameToppingsDefined2" value="Tuple {&#xA;&#x9;message : String = name + ' test',&#xA;&#x9;status : Boolean = self.toppingsAvailable -> forAll(topping | self.toppingsAvailable -> select(t2 | t2 &lt;> topping) -> exists(t1 | t1.name = topping.name))&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizzasAvailable" upperBound="-1"
