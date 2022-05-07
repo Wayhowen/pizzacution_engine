@@ -27,6 +27,13 @@
         upperBound="-1" eType="#//SizeReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement #//Nutritions">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameToppingsDefinedTwice NoSameToppingDefinedTwiceWithinAPizza"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameToppingsDefinedTwice" value="Tuple {&#xA;&#x9;message : String = name + ' should not be defined twice',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).toppingsAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(t | t &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(topping | self.name &lt;> topping.name)&#xA;}.status"/>
+      <details key="NoSameToppingDefinedTwiceWithinAPizza" value="Tuple {&#xA;&#x9;message : String = self.name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).sizeReference -> &#xA;&#x9;&#x9;&#x9;&#x9;select(sr | sr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(sizeRef | self.size &lt;> sizeRef.size)&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onPizza" upperBound="-1"
         eType="#//Pizza" eOpposite="#//Pizza/toppings"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" eType="#//FoodGroup"
@@ -71,12 +78,6 @@
     <eLiterals name="ExtraLarge" value="3" literal="xl"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PizzaPlace" eSuperTypes="#//NamedElement">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="NoSameToppingsDefined2"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="NoSameToppingsDefined2" value="Tuple {&#xA;&#x9;message : String = name + ' test',&#xA;&#x9;status : Boolean = self.toppingsAvailable -> forAll(topping | self.toppingsAvailable -> select(t2 | t2 &lt;> topping) -> exists(t1 | t1.name = topping.name))&#xA;}.status"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pizzasAvailable" upperBound="-1"
@@ -87,12 +88,26 @@
         eType="#//Topping" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Size" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameSizeDefinedTwice NoTwoSizeIsServesTheSameAmountOfPpl NoTwoSizePriceMultipliersAreTheSame"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameSizeDefinedTwice" value="Tuple {&#xA;&#x9;message : String = name + ' should not be defined twice',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).sizesAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(s | s &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(size | self.name &lt;> size.name)&#xA;}.status"/>
+      <details key="NoTwoSizeIsServesTheSameAmountOfPpl" value="Tuple {&#xA;&#x9;message : String = name + ' should not serve the same amount of people as any other size',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).sizesAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(s | s &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(size | self.serves &lt;> size.serves)&#xA;}.status"/>
+      <details key="NoTwoSizePriceMultipliersAreTheSame" value="Tuple {&#xA;&#x9;message : String = name + ' should not multiply the price the same way as any other size',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).sizesAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(s | s &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(size | self.priceMultiplier &lt;> size.priceMultiplier)&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serves" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priceMultiplier" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SizeReference">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameSizeReferenceDefinedTwice"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameSizeReferenceDefinedTwice" value="Tuple {&#xA;&#x9;message : String = 'Size' + self.size.oclAsType(Size).name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).sizeReference -> &#xA;&#x9;&#x9;&#x9;&#x9;select(sr | sr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(sizeRef | self.size &lt;> sizeRef.size)&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="size" lowerBound="1" eType="#//Size"/>
   </eClassifiers>
 </ecore:EPackage>
