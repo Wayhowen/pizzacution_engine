@@ -12,15 +12,23 @@
         eType="#//AddToppings" containment="true" eOpposite="#//AddToppings/recipe"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipeName" ordered="false"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" upperBound="-1"
+        eType="#//RecipesBook" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrepareBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" lowerBound="1"
         eType="#//Recipe" eOpposite="#//Recipe/basePreparation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddToppings">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" lowerBound="1"
         eType="#//Recipe" eOpposite="#//Recipe/addToppings"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecipesBook">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeName" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

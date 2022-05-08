@@ -4,7 +4,13 @@ modeltype MMPizza uses "http://www.example.org/schema";
 transformation Pizza2Recipe(in source: MMPizza, out target: MMRecipe);
 
 main() {
-	source.rootObjects()[Pizza] -> map Pizza2Recipe();
+	//source.rootObjects()[Pizza] -> map Pizza2Recipe();
+	source.rootObjects()[PizzaPlace] -> map PizzaPlace2RecipesBook();
+}
+
+mapping MMPizza::PizzaPlace :: PizzaPlace2RecipesBook() : MMRecipe::RecipesBook{
+	placeName := self.name;
+	self.pizzasAvailable -> map Pizza2Recipe();
 }
 
 mapping MMPizza::Pizza :: Pizza2Recipe() : MMRecipe::Recipe {
@@ -40,21 +46,3 @@ helper MMPizza::Pizza :: prepareDough(): String {
  	return "Take x amount of " + self.sauce.toString() + "sauce and place it on the dough";
  }
  
-// helper MMPizza::Topping :: addToppings(): String {
-// 	return "Place x amount of " + self.foodGroup.toString();
-// }
- 
- 
- 
-// 
-// helper MMPizza::Pizza :: addMeat(): String {
-// 	return "Place x amount of ";
-// }
-// 
-// helper MMPizza::Pizza :: addVegetables(): String{
-// 	return "";
-// }
-// 
-//  helper MMPizza::Pizza :: addCheese(): String{
-// 	return "";
-// }

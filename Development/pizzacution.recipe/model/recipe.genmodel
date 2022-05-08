@@ -12,6 +12,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/basePreparation"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/addToppings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Recipe/recipeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/recipes"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//PrepareBase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//PrepareBase/description"/>
@@ -20,6 +21,9 @@
     <genClasses ecoreClass="recipe.ecore#//AddToppings">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//AddToppings/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//AddToppings/recipe"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//RecipesBook">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//RecipesBook/placeName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
