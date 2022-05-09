@@ -37,15 +37,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//Pizza">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Pizza/toppings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Pizza/price"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Pizza/sauce"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Pizza/dough"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Pizza/soldIn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schema.ecore#//Pizza/sizeReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference schema.ecore#//Pizza/toppingReferences"/>
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//Topping">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//Topping/onPizza"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Topping/foodGroup"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute schema.ecore#//Topping/price"/>
     </genClasses>
@@ -70,6 +69,9 @@
     </genClasses>
     <genClasses ecoreClass="schema.ecore#//SizeReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//SizeReference/size"/>
+    </genClasses>
+    <genClasses ecoreClass="schema.ecore#//ToppingReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference schema.ecore#//ToppingReference/topping"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="schema" nsURI="http://www.example.org/schema" nsPrefix="schema">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pizza" eSuperTypes="#//NamedElement #//Nutritions">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toppings" upperBound="-1"
-        eType="#//Topping" eOpposite="#//Topping/onPizza"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" unique="false" lowerBound="1"
-        eType="#//Sauces" defaultValueLiteral="tmt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sauce" lowerBound="1" eType="#//Sauces"
+        defaultValueLiteral="tmt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dough" lowerBound="1" eType="#//DoughTypes"
         defaultValueLiteral="nys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="soldIn" lowerBound="1"
         eType="#//PizzaPlace" eOpposite="#//PizzaPlace/pizzasAvailable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sizeReference" lowerBound="1"
         upperBound="-1" eType="#//SizeReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toppingReferences" lowerBound="1"
+        upperBound="-1" eType="#//ToppingReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topping" eSuperTypes="#//NamedElement #//Nutritions">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onPizza" upperBound="-1"
-        eType="#//Pizza" eOpposite="#//Pizza/toppings"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" ordered="false"
-        unique="false" eType="#//FoodGroup" defaultValueLiteral="veg"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameToppingsDefinedTwice"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameToppingsDefinedTwice" value="Tuple {&#xA;&#x9;message : String = name + ' should not be defined twice',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).toppingsAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(t | t &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(topping | self.name &lt;> topping.name)&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foodGroup" eType="#//FoodGroup"
+        defaultValueLiteral="veg"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DoughTypes">
@@ -37,13 +49,19 @@
     <eLiterals name="Garlic" value="2" literal="glc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Nutritions" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calories" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="carbohydrates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proteins" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasLactose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegetarian" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegan" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calories" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="carbohydrates" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proteins" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fat" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasLactose" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegetarian" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVegan" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FoodGroup">
     <eLiterals name="vegetables" literal="veg"/>
@@ -67,12 +85,36 @@
         eType="#//Topping" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Size" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameSizeDefinedTwice NoTwoSizeIsServesTheSameAmountOfPpl NoTwoSizePriceMultipliersAreTheSame"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameSizeDefinedTwice" value="Tuple {&#xA;&#x9;message : String = name + ' should not be defined twice',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).sizesAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(s | s &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(size | self.name &lt;> size.name)&#xA;}.status"/>
+      <details key="NoTwoSizeIsServesTheSameAmountOfPpl" value="Tuple {&#xA;&#x9;message : String = name + ' should not serve the same amount of people as any other size',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).sizesAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(s | s &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(size | self.serves &lt;> size.serves)&#xA;}.status"/>
+      <details key="NoTwoSizePriceMultipliersAreTheSame" value="Tuple {&#xA;&#x9;message : String = name + ' should not multiply the price the same way as any other size',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(PizzaPlace).sizesAvailable -> &#xA;&#x9;&#x9;&#x9;&#x9;select(s | s &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(size | self.priceMultiplier &lt;> size.priceMultiplier)&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serves" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priceMultiplier" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SizeReference">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameSizeReferenceDefinedTwice"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameSizeReferenceDefinedTwice" value="Tuple {&#xA;&#x9;message : String = 'Size ' + self.size.oclAsType(Size).name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).sizeReference -> &#xA;&#x9;&#x9;&#x9;&#x9;select(sr | sr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(sizeRef | self.size &lt;> sizeRef.size)&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="size" lowerBound="1" eType="#//Size"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToppingReference">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NoSameSizeReferenceDefinedTwice"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NoSameSizeReferenceDefinedTwice" value="Tuple {&#xA;&#x9;message : String = self.topping.oclAsType(Topping).name + ' should not be defined twice within the same pizza',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.oclContainer.oclAsType(Pizza).toppingReferences -> &#xA;&#x9;&#x9;&#x9;&#x9;select(tr | tr &lt;> self) ->&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; forAll(toppingRef | self.topping &lt;> toppingRef.topping)&#xA;}.status"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topping" lowerBound="1"
+        eType="#//Topping"/>
   </eClassifiers>
 </ecore:EPackage>
