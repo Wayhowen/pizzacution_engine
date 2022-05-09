@@ -9,7 +9,7 @@
   <foreignModel>PizzaOrder.ecore</foreignModel>
   <genPackages prefix="PizzaOrder" disposableProviderFactory="true" ecorePackage="PizzaOrder.ecore#/">
     <genClasses ecoreClass="PizzaOrder.ecore#//Order">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PizzaOrder.ecore#//Order/Pizzas"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PizzaOrder.ecore#//Order/pizza"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

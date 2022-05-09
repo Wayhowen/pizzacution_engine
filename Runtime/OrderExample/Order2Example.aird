@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PizzaOrder="mdse.org/pizza" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_dQKfkMxXEeytxM4XQ7b5ZA" selectedViews="_dr_f8MxXEeytxM4XQ7b5ZA" version="15.0.0.202201261500">
+    <semanticResources>Example2.pizzaorder</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_dr_f8MxXEeytxM4XQ7b5ZA">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/pizzacution.order.graphical/description/graphical.odesign#//@ownedViewpoints[name='Order%20Viewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pcpqkMxXEeytxM4XQ7b5ZA" name="new Order Viewpoint" repPath="#_pcercMxXEeytxM4XQ7b5ZA" changeId="75f436df-e70b-40d3-a3d1-548a657784f9">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/pizzacution.order.graphical/description/graphical.odesign#//@ownedViewpoints[name='Order%20Viewpoint']/@ownedRepresentations[name='Order%20Viewpoint']"/>
+        <target xmi:type="PizzaOrder:Order" href="Example2.pizzaorder#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_pcercMxXEeytxM4XQ7b5ZA">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_pc3F8MxXEeytxM4XQ7b5ZA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_pc3tAMxXEeytxM4XQ7b5ZA" type="Sirius" element="_pcercMxXEeytxM4XQ7b5ZA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_pdQukMxXEeytxM4XQ7b5ZA" type="2002" element="_pdILsMxXEeytxM4XQ7b5ZA">
+          <children xmi:type="notation:Node" xmi:id="_pdRVoMxXEeytxM4XQ7b5ZA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_pdR8sMxXEeytxM4XQ7b5ZA" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_pdR8scxXEeytxM4XQ7b5ZA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_pdR8ssxXEeytxM4XQ7b5ZA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_pdQukcxXEeytxM4XQ7b5ZA" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pdQuksxXEeytxM4XQ7b5ZA" x="66" y="54" width="207" height="147"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_pc3tAcxXEeytxM4XQ7b5ZA"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_pdL2EMxXEeytxM4XQ7b5ZA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_pdMdIMxXEeytxM4XQ7b5ZA"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_pdILsMxXEeytxM4XQ7b5ZA" name="Order" childrenPresentation="HorizontalStack">
+      <target xmi:type="PizzaOrder:Order" href="Example2.pizzaorder#/"/>
+      <semanticElements xmi:type="PizzaOrder:Order" href="Example2.pizzaorder#/"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_oBUiwMxcEey6vcWg7TjvZw" labelSize="12" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/pizzacution.order.graphical/description/graphical.odesign#//@ownedViewpoints[name='Order%20Viewpoint']/@ownedRepresentations[name='Order%20Viewpoint']/@defaultLayer/@containerMappings[name='Order%20Container']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/pizzacution.order.graphical/description/graphical.odesign#//@ownedViewpoints[name='Order%20Viewpoint']/@ownedRepresentations[name='Order%20Viewpoint']/@defaultLayer/@containerMappings[name='Order%20Container']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/pizzacution.order.graphical/description/graphical.odesign#//@ownedViewpoints[name='Order%20Viewpoint']/@ownedRepresentations[name='Order%20Viewpoint']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_pcjj8MxXEeytxM4XQ7b5ZA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/pizzacution.order.graphical/description/graphical.odesign#//@ownedViewpoints[name='Order%20Viewpoint']/@ownedRepresentations[name='Order%20Viewpoint']/@defaultLayer"/>
+    <target xmi:type="PizzaOrder:Order" href="Example2.pizzaorder#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
