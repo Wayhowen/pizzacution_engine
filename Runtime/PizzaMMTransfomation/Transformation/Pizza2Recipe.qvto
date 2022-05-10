@@ -10,19 +10,20 @@ main() {
 
 mapping MMPizza::PizzaPlace :: PizzaPlace2RecipesBook() : MMRecipe::RecipesBook{
 	placeName := self.name;
-	self.pizzasAvailable -> map Pizza2Recipe();
+	recipe := self.pizzasAvailable -> map Pizza2Recipe();
 }
 
 mapping MMPizza::Pizza :: Pizza2Recipe() : MMRecipe::Recipe {
-	self.map Pizza2RecipeName();
+	//self.map Pizza2RecipeName();
+	recipeName := self.getPizzaName();
 	basePreparation := self.map Pizza2Description();
 	addToppings := self.map Topping2Description();
 	//addToppings := self. -> map Topping2Description();
 }
 
-mapping MMPizza::Pizza :: Pizza2RecipeName(): MMRecipe :: Recipe {
-	recipeName := self.getPizzaName();
-}
+//mapping MMPizza::Pizza :: Pizza2RecipeName(): MMRecipe :: Recipe {
+//	recipeName := self.getPizzaName();
+//}
 
 mapping MMPizza::Pizza :: Pizza2Description(): MMRecipe :: PrepareBase
 	when {self.dough != null and self.sauce !=null;} {
@@ -38,9 +39,10 @@ mapping MMPizza::Pizza :: Topping2Description(): MMRecipe :: AddToppings
 	when{self.toppings != null}{
 	var a: String;
 	self.toppings -> forEach(topping) {
-		// a := "Add " + topping.name;
+		a := topping.name;
+		description := "Add " + a
 	};
-	description := a + " and bake for 15 minutes at 250C";
+	// description := description + " and bake for 15 minutes at 250C";
 	
 }
 

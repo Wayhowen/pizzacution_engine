@@ -4,32 +4,36 @@
 package pizzacution.schema.dsl.formatting2;
 
 import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import pizzacution.schema.Pizza;
+import pizzacution.schema.PizzaPlace;
 
 @SuppressWarnings("all")
 public class LanguageFormatter extends AbstractFormatter2 {
-  protected void _format(final /* PizzaPlace */Object pizzaPlace, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\npizzasAvailable cannot be resolved"
-      + "\nformat cannot be resolved");
+  protected void _format(final PizzaPlace pizzaPlace, @Extension final IFormattableDocument document) {
+    EList<Pizza> _pizzasAvailable = pizzaPlace.getPizzasAvailable();
+    for (final Pizza pizza : _pizzasAvailable) {
+      document.<Pizza>format(pizza);
+    }
   }
   
   public void format(final Object pizzaPlace, final IFormattableDocument document) {
     if (pizzaPlace instanceof XtextResource) {
       _format((XtextResource)pizzaPlace, document);
       return;
+    } else if (pizzaPlace instanceof PizzaPlace) {
+      _format((PizzaPlace)pizzaPlace, document);
+      return;
     } else if (pizzaPlace instanceof EObject) {
       _format((EObject)pizzaPlace, document);
       return;
     } else if (pizzaPlace == null) {
       _format((Void)null, document);
-      return;
-    } else if (pizzaPlace != null) {
-      _format(pizzaPlace, document);
       return;
     } else if (pizzaPlace != null) {
       _format(pizzaPlace, document);
