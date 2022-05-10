@@ -16,7 +16,8 @@ mapping MMPizza::PizzaPlace :: PizzaPlace2RecipesBook() : MMRecipe::RecipesBook{
 mapping MMPizza::Pizza :: Pizza2Recipe() : MMRecipe::Recipe {
 	self.map Pizza2RecipeName();
 	basePreparation := self.map Pizza2Description();
-	addToppings := self.toppings -> map Topping2Description();
+	addToppings := self.map Topping2Description();
+	//addToppings := self. -> map Topping2Description();
 }
 
 mapping MMPizza::Pizza :: Pizza2RecipeName(): MMRecipe :: Recipe {
@@ -28,10 +29,22 @@ mapping MMPizza::Pizza :: Pizza2Description(): MMRecipe :: PrepareBase
 		description := self.prepareDough() + " " + self.putSauce();		
 }
 
-mapping MMPizza::Topping :: Topping2Description(): MMRecipe :: AddToppings 
-	when{self.foodGroup != null}{
-		description := "Add x amount of " + self.foodGroup.toString();
+//mapping MMPizza::Topping :: Topping2Description(): MMRecipe :: AddToppings 
+//	when{self.foodGroup != null}{
+//		description := "Add " + self.foodGroup.() + "on the pizza and bake for 15 minutes at 250C";
+//}
+
+mapping MMPizza::Pizza :: Topping2Description(): MMRecipe :: AddToppings 
+	when{self.toppings != null}{
+	var a: String;
+	self.toppings -> forEach(topping) {
+		// a := "Add " + topping.name;
+	};
+	description := a + " and bake for 15 minutes at 250C";
+	
 }
+
+
 
 
 helper MMPizza::NamedElement :: getPizzaName(): String {
@@ -39,10 +52,10 @@ helper MMPizza::NamedElement :: getPizzaName(): String {
 }
 
 helper MMPizza::Pizza :: prepareDough(): String {
-	return "Get x amount of " + self.dough.toString() + " dough"; 
+	return "Shape into a round the " + self.dough.toString() + " dough"; 
 }
 
  helper MMPizza::Pizza :: putSauce(): String {
- 	return "Take x amount of " + self.sauce.toString() + "sauce and place it on the dough";
+ 	return "Add " + self.sauce.toString() + " sauce and place it on the dough";
  }
  

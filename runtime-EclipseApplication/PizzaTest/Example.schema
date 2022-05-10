@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema:PizzaPlace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://www.example.org/schema" address="Some Address" name="MyPizzaPlace">
-  <toppingsAvailable name="Ham" calories="15" carbohydrates="1.0" proteins="2.0" fat="1.0" foodGroup="meat" price="0.5"/>
-  <toppingsAvailable name="Mozarella" calories="20" carbohydrates="1.0" proteins="0.5" fat="2.0" foodGroup="cheese" price="0.2"/>
-</schema:PizzaPlace>
