@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema:PizzaPlace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://www.example.org/schema" name="Luigis" address="Some Address">
-  <pizzasAvailable name="Margherita" toppings="//@toppingsAvailable.0"/>
-  <pizzasAvailable name="Quattro Formaggi" toppings="//@toppingsAvailable.1 //@toppingsAvailable.0 //@toppingsAvailable.2"/>
-  <sizesAvailable name="Small" serves="4" priceMultiplier="1.2"/>
-  <toppingsAvailable name="Mozzarella" onPizza="//@pizzasAvailable.0 //@pizzasAvailable.1"/>
-  <toppingsAvailable name="Gorgonzola" onPizza="//@pizzasAvailable.1"/>
-  <toppingsAvailable name="Parmigiano" onPizza="//@pizzasAvailable.1"/>
-</schema:PizzaPlace>

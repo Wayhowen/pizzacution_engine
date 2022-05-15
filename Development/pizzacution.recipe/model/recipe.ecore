@@ -2,33 +2,21 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="recipe" nsURI="http://www.pizzacution.org/recipe" nsPrefix="recipe">
   <eClassifiers xsi:type="ecore:EClass" name="Recipe">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="basePreparation" ordered="false"
-        unique="false" lowerBound="1" eType="#//PrepareBase" containment="true" eOpposite="#//PrepareBase/recipe">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" lowerBound="1" upperBound="-1"
+        eType="#//Step" eOpposite="#//Step/recipe">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="addToppings" upperBound="-1"
-        eType="#//AddToppings" containment="true" eOpposite="#//AddToppings/recipe"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recipeName" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recipes" upperBound="-1"
-        eType="#//RecipesBook" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" lowerBound="1" upperBound="-1"
+        eType="#//Step" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrepareBase">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Step">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" lowerBound="1"
-        eType="#//Recipe" eOpposite="#//Recipe/basePreparation"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AddToppings">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Recipe" eOpposite="#//Recipe/step"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recipe" lowerBound="1"
-        eType="#//Recipe" eOpposite="#//Recipe/addToppings"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RecipesBook">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeName" ordered="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Recipe"/>
   </eClassifiers>
 </ecore:EPackage>

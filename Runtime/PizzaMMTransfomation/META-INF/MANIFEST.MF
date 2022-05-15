@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: PizzaMMTransfomation Plug-in
-Bundle-SymbolicName: PizzaMMTransfomation;singleton:=true
-Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0"
-Bundle-ActivationPolicy: lazy
