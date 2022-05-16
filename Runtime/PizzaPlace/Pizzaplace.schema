@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema:PizzaPlace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://www.example.org/schema" name="New Pizza Order">
+  <pizzasAvailable name="Margeritha">
+    <toppingReferences topping="//@toppingsAvailable.1"/>
+    <toppingReferences topping="//@toppingsAvailable.2"/>
+  </pizzasAvailable>
+  <pizzasAvailable name="Calzione">
+    <toppingReferences topping="//@toppingsAvailable.1"/>
+    <toppingReferences topping="//@toppingsAvailable.2"/>
+    <toppingReferences topping="//@toppingsAvailable.0"/>
+  </pizzasAvailable>
+  <toppingsAvailable name="Salami" foodGroup="meat"/>
+  <toppingsAvailable name="Spinach"/>
+  <toppingsAvailable name="Cheese" foodGroup="cheese"/>
+</schema:PizzaPlace>
