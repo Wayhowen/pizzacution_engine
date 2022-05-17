@@ -10,7 +10,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_Pbv2wKhjEeyEb_fmEFDlAQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_PdnfAKhjEeyEb_fmEFDlAQ" name="query" repPath="#_Pdcf4KhjEeyEb_fmEFDlAQ" changeId="ed60a179-fdd2-4d53-a694-505da6225f48">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_PdnfAKhjEeyEb_fmEFDlAQ" name="query" repPath="#_Pdcf4KhjEeyEb_fmEFDlAQ" changeId="b4bc8e23-96a3-4c49-b5c3-0001bacaa4e5">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="query.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -22,10 +22,6 @@
         <children xmi:type="notation:Node" xmi:id="_npnfML88EeygIf8TD1FK0A" type="2003" element="_noL70L88EeygIf8TD1FK0A">
           <children xmi:type="notation:Node" xmi:id="_npotUL88EeygIf8TD1FK0A" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_nppUYL88EeygIf8TD1FK0A" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_SZOlcMNHEeyRT5GtZguZ8g" type="3010" element="_SZMwQcNHEeyRT5GtZguZ8g">
-              <styles xmi:type="notation:FontStyle" xmi:id="_SZOlccNHEeyRT5GtZguZ8g" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_SZOlcsNHEeyRT5GtZguZ8g"/>
-            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_nppUYb88EeygIf8TD1FK0A"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_nppUYr88EeygIf8TD1FK0A"/>
           </children>
@@ -690,14 +686,6 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_SZMwQcNHEeyRT5GtZguZ8g" name=" from : Pizza" tooltipText="">
-        <target xmi:type="ecore:EReference" href="query.ecore#//SelectQuery/from"/>
-        <semanticElements xmi:type="ecore:EReference" href="query.ecore#//SelectQuery/from"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_SZNXUMNHEeyRT5GtZguZ8g" labelAlignment="LEFT" color="114,159,207">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
-      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_zNqr4MNHEeyRT5GtZguZ8g" name="AllPizzas" tooltipText="" outgoingEdges="_8TEUsMNIEeyRT5GtZguZ8g" width="12" height="10">
       <target xmi:type="ecore:EClass" href="query.ecore#//AllPizzas"/>

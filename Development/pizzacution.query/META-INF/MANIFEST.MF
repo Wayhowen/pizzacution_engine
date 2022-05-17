@@ -8,8 +8,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
- pizzacution.schema;visibility:=reexport,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ pizzacution.schema;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: pizzacution.query,

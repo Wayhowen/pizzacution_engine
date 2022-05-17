@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Interpreter
+Bundle-SymbolicName: pizzacution.query.interpreter
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: pizzacution.query.interpreter
+Bundle-RequiredExecutionEnvironment: JavaSE-16
+Require-Bundle: pizzacution.query;bundle-version="0.1.0";visibility:=reexport
+Export-Package: pizzacution.query.interpreter
