@@ -19,7 +19,6 @@
       <genEnumLiterals ecoreEnumLiteral="query.ecore#//ComparativeOperator/GREATER_THAN_OR_EQUAL"/>
     </genEnums>
     <genClasses ecoreClass="query.ecore#//SelectQuery">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/from"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/whatClause"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference query.ecore#//SelectQuery/thatClause"/>
     </genClasses>
