@@ -15,6 +15,12 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ui.IStartup;
 
 import pizzacution.query.AtClause;
+import pizzacution.query.ComparativeOperator;
+import pizzacution.query.ContainsClause;
+import pizzacution.query.CostClause;
+import pizzacution.query.CostDirective;
+import pizzacution.query.DoesntHaveClause;
+import pizzacution.query.HasClause;
 import pizzacution.query.InClause;
 import pizzacution.query.IsServedClause;
 import pizzacution.query.IsServedDirective;
@@ -23,8 +29,11 @@ import pizzacution.query.QueryPackage;
 import pizzacution.query.SelectQuery;
 import pizzacution.query.ThatClause;
 import pizzacution.query.ThatDirective;
+import pizzacution.query.ToppingReference;
 import pizzacution.schema.PizzaPlace;
+import pizzacution.schema.Size;
 import pizzacution.schema.SizeReference;
+import pizzacution.schema.Topping;
 
 public class QueryValidator extends EObjectValidator implements IStartup {
 	private DiagnosticChain diagnostics;
@@ -37,9 +46,13 @@ public class QueryValidator extends EObjectValidator implements IStartup {
 	// TODO: this generally could be extended, however we for now only work with 1 pizza place and only sizes from there
 	private int inClausesAllowed = 1;
 	
+	private int hasClausesAllowed = 1;
+	private int doesntHaveClausesAllowed = 1;
+	
 	private int atClausesAllowed = 1;
 	private Set<PizzaPlace> pizzaPlaces = new HashSet<PizzaPlace>();
-	private Set<SizeReference> sizeRefs = new HashSet<SizeReference>();
+	private Set<Size> sizes = new HashSet<Size>();
+	private Set<Topping> toppings = new HashSet<Topping>();
 	
 	@Override
 	public void earlyStartup() {
@@ -87,11 +100,13 @@ public class QueryValidator extends EObjectValidator implements IStartup {
 				if (costClausesAllowed < 0) {
 					modelIsValid &= constraintViolated(thatDirective, "There cannot be more than 1 'costs' clause.");
 				}
+				modelIsValid &= this.validateCostClause(thatDirective.getCostClause());
 			} else if (!thatDirective.getContainsClause().isEmpty()) {
 				containsClausesAllowed -= thatDirective.getContainsClause().size();
 				if (containsClausesAllowed < 0) {
 					modelIsValid &= constraintViolated(thatDirective, "There cannot be more than 2 'has' clauses.");
 				}
+				modelIsValid &= this.validateContainsClauses(thatDirective.getContainsClause());
 			} else if (thatDirective.getIsServedClause() != null) {
 				isServedClausesAllowed -= 1;
 				if (isServedClausesAllowed < 0) {
@@ -100,6 +115,90 @@ public class QueryValidator extends EObjectValidator implements IStartup {
 				modelIsValid &= this.validateIsServedClause(thatDirective.getIsServedClause());
 			}
 		}
+		return modelIsValid;
+	}
+	
+	protected boolean validateCostClause(CostClause costClause) {
+		boolean modelIsValid = true;
+		
+		// basic check for OR condition, could be upgraded for AND
+		List<CostDirective> costDirs = costClause.getCostDirective();
+		if (costDirs.size() > 1) {
+			if (costDirs.get(0).getOperator() == costDirs.get(1).getOperator() ) {
+				modelIsValid &= constraintViolated(costClause, "Cost clause cannot have duplicate operators.");
+			}
+			if (costDirs.get(0).getOperator() == ComparativeOperator.LESS_THAN_EQUAL &&
+					costDirs.get(1).getOperator() == ComparativeOperator.LESS_THAN) {
+				modelIsValid &= constraintViolated(costClause, "Cannot use LTE and LT operators at once.");
+			}
+			if (costDirs.get(0).getOperator() == ComparativeOperator.GREATER_THAN_OR_EQUAL &&
+					costDirs.get(1).getOperator() == ComparativeOperator.GREATER_THAN) {
+				modelIsValid &= constraintViolated(costClause, "Cannot use GTE and GT operators at once.");
+			}
+		}
+		
+		
+		return modelIsValid;
+	}
+	
+	protected boolean validateCostDirectives(List<CostDirective> costDirs) {
+		boolean modelIsValid = true;
+		
+		for(CostDirective cd : costDirs) {
+			if (cd.getPrice() <= 0) {
+				modelIsValid &= constraintViolated(cd, "Price cannot be negative or 0.");
+			}
+		}
+		
+		return modelIsValid;
+	}
+	
+	protected boolean validateContainsClauses(List<ContainsClause> containsClauses) {
+		boolean modelIsValid = true;
+		
+		for (ContainsClause cc : containsClauses) {
+			if (cc instanceof HasClause) {
+				this.hasClausesAllowed -= 1;
+				if (this.hasClausesAllowed < 0) {
+					modelIsValid &= constraintViolated(cc, "There can be only 1 'contains' clause.");
+				}
+			} else if (cc instanceof DoesntHaveClause) {
+				this.doesntHaveClausesAllowed -= 1;
+				if (this.doesntHaveClausesAllowed < 0) {
+					modelIsValid &= constraintViolated(cc, "There can be only 1 'does not contain' clause.");
+				}
+			}
+			modelIsValid &= validateToppingReferences(cc);
+		}
+		
+		
+		return modelIsValid;
+	}
+	
+	protected boolean validateToppingReferences(ContainsClause cc) {
+		boolean modelIsValid = true;
+		
+		if (cc instanceof HasClause) {
+			for (ToppingReference tr: ((HasClause) cc ).getToppingReference()) {
+				Topping t = tr.getTopping();
+				if (this.toppings.contains(t)) {
+					modelIsValid &= constraintViolated(tr, "Cannot repeat same topping.");
+				} else {
+					this.toppings.add(t);
+				}
+			}
+		} else if (cc instanceof DoesntHaveClause) {
+			for (ToppingReference tr: ((DoesntHaveClause) cc ).getToppingReference()) {
+				Topping t = tr.getTopping();
+				if (this.toppings.contains(t)) {
+					modelIsValid &= constraintViolated(tr, "Cannot repeat same topping.");
+				} else {
+					this.toppings.add(t);
+				}
+			}
+		}
+		
+		
 		return modelIsValid;
 	}
 	
@@ -143,10 +242,11 @@ public class QueryValidator extends EObjectValidator implements IStartup {
 		boolean modelIsValid = true;
 		
 		for (SizeReference sizeRef : inClause.getSizeReference()) {
-			if (this.sizeRefs.contains(sizeRef)) {
+			Size size = sizeRef.getSize();
+			if (this.sizes.contains(size)) {
 				modelIsValid &= constraintViolated(sizeRef, "Same size cannot be mentioned twice.");
 			} else {
-				this.sizeRefs.add(sizeRef);
+				this.sizes.add(size);
 			}
 		}
 		
@@ -168,6 +268,9 @@ public class QueryValidator extends EObjectValidator implements IStartup {
 		this.inClausesAllowed = 1;
 		this.atClausesAllowed = 1;
 		this.pizzaPlaces.clear();
-		this.sizeRefs.clear();
+		this.sizes.clear();
+		this.toppings.clear();
+		this.hasClausesAllowed = 1;
+		this.doesntHaveClausesAllowed = 1;
 	}
 }
