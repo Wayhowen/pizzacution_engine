@@ -5,7 +5,7 @@
     <semanticResources>recipe.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_hjA74MGCEeyITKCcNYWLwA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hjjHYMGCEeyITKCcNYWLwA" name="recipe package entities" repPath="#_hjigUMGCEeyITKCcNYWLwA" changeId="cd213bb5-bcab-4147-a1f5-6e00247ac9ed">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_hjjHYMGCEeyITKCcNYWLwA" name="recipe package entities" repPath="#_hjigUMGCEeyITKCcNYWLwA" changeId="7cf07442-5468-4ef9-96d4-f1d982020e66">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="recipe.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -172,8 +172,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Em7xoMGDEeyITKCcNYWLwA" name="[1..1] recipe - [1..1] basePreparation" sourceNode="_nZni4MGCEeyITKCcNYWLwA" targetNode="_qJEywMGCEeyITKCcNYWLwA">
       <target xmi:type="ecore:EReference" href="recipe.ecore#//Recipe/basePreparation"/>
-      <semanticElements xmi:type="ecore:EReference" href="recipe.ecore#//Recipe/basePreparation"/>
       <semanticElements xmi:type="ecore:EReference" href="recipe.ecore#//PrepareBase/recipe"/>
+      <semanticElements xmi:type="ecore:EReference" href="recipe.ecore#//Recipe/basePreparation"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_EnBRMMGDEeyITKCcNYWLwA" targetArrow="NoDecoration" strokeColor="255,255,255">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.sirius.sample.ecore.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
