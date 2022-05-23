@@ -36,7 +36,7 @@ DoesntHaveClause returns query::DoesntHaveClause: "does" "not" "have" toppingRef
 ToppingReference returns query::ToppingReference: topping=[schema::Topping];
 
 // TODO: ensure that we cannot say both precisely and less than and so on
-CostClause returns query::CostClause: "costs" costDirective+=CostDirective ("and" costDirective+=CostDirective)? "dkk";
+CostClause returns query::CostClause: "costs" costDirective+=CostDirective ("or" costDirective+=CostDirective)? "dkk";
 
 CostDirective returns query::CostDirective: operator=ComparativeOperator price=FLOAT;
 
