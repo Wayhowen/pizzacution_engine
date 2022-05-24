@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema:PizzaPlace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://www.example.org/schema">
+  <pizzasAvailable name="Margherita" toppings="//@toppingsAvailable.0">
+    <sizeReference>
+      <size href="Size.schema#/"/>
+    </sizeReference>
+  </pizzasAvailable>
+  <toppingsAvailable name="Mozzarella" onPizza="//@pizzasAvailable.0"/>
+</schema:PizzaPlace>
