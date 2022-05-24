@@ -1,12 +1,14 @@
 package pizzacution.query.interpreter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import pizzacution.schema.DoughTypes;
 import pizzacution.schema.Pizza;
 import pizzacution.schema.Sauces;
 import pizzacution.schema.Size;
+import pizzacution.schema.Topping;
 import pizzacution.schema.ToppingReference;
 
 public class PizzaContainer {
@@ -15,6 +17,8 @@ public class PizzaContainer {
 	public float price;
 	public Sauces sauce;
 	public DoughTypes dough;
+	// this is hash set since those cannot be repeated and it makes processing later on faster
+	public HashSet<Topping> toppings;
 	
 	public PizzaContainer(Pizza pizza, Size size) {
 		this.pizza = pizza;
@@ -22,6 +26,7 @@ public class PizzaContainer {
 		this.sauce = pizza.getSauce();
 		this.dough = pizza.getDough();
 		this.price = calculatePizzaPrice();
+		this.toppings = this.getToppings();
 	}
 	
 	@Override
@@ -43,7 +48,14 @@ public class PizzaContainer {
 		for (ToppingReference topRef : this.pizza.getToppingReferences()) {
 			basePrice += topRef.getTopping().getPrice();
 		}
-		System.out.println(basePrice + " " + this.size.getPriceMultiplier());
 		return basePrice * this.size.getPriceMultiplier();
+	}
+	
+	private HashSet<Topping> getToppings() {
+		HashSet<Topping> toppings = new HashSet();
+		for (ToppingReference tr : this.pizza.getToppingReferences()) {
+			toppings.add(tr.getTopping());
+		}
+		return toppings;
 	}
 }
