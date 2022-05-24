@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema:PizzaPlace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:schema="http://www.example.org/schema" name="SuperPizza" address="Street123">
+  <pizzasAvailable name="Margherita">
+    <sizeReference>
+      <size href="SmallSize.schema#/"/>
+    </sizeReference>
+    <toppingReferences>
+      <topping href="MozzarellaTopping.schema#/"/>
+    </toppingReferences>
+    <toppingReferences>
+      <topping href="TomatoTopping.schema#/"/>
+    </toppingReferences>
+  </pizzasAvailable>
+  <sizesAvailable name="Small" serves="4" priceMultiplier="0.1"/>
+</schema:PizzaPlace>

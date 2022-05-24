@@ -4,7 +4,6 @@ modeltype MMPizza uses "http://www.example.org/schema";
 transformation Pizza2Recipe(in source: MMPizza, out target: MMRecipe);
 
 main() {
-	//source.rootObjects()[Pizza] -> map Pizza2Recipe();
 	source.rootObjects()[PizzaPlace] -> map PizzaPlace2RecipesBook();
 }
 
@@ -14,40 +13,32 @@ mapping MMPizza::PizzaPlace :: PizzaPlace2RecipesBook() : MMRecipe::RecipesBook{
 }
 
 mapping MMPizza::Pizza :: Pizza2Recipe() : MMRecipe::Recipe {
-	//self.map Pizza2RecipeName();
 	recipeName := self.getPizzaName();
 	basePreparation := self.map Pizza2Description();
 	addToppings := self.map Topping2Description();
-	//addToppings := self. -> map Topping2Description();
 }
-
-//mapping MMPizza::Pizza :: Pizza2RecipeName(): MMRecipe :: Recipe {
-//	recipeName := self.getPizzaName();
-//}
 
 mapping MMPizza::Pizza :: Pizza2Description(): MMRecipe :: PrepareBase
 	when {self.dough != null and self.sauce !=null;} {
 		description := self.prepareDough() + " " + self.putSauce();		
 }
 
-//mapping MMPizza::Topping :: Topping2Description(): MMRecipe :: AddToppings 
-//	when{self.foodGroup != null}{
-//		description := "Add " + self.foodGroup.() + "on the pizza and bake for 15 minutes at 250C";
-//}
-
 mapping MMPizza::Pizza :: Topping2Description(): MMRecipe :: AddToppings 
-	when{self.toppings != null}{
-	var a: String;
-	self.toppings -> forEach(topping) {
-		a := topping.name;
-		description := "Add " + a
+	when{self.toppingReferences != null}{
+	var tname: String;
+	var temp: String;
+	self.toppingReferences -> forEach(topping) {
+		tname := topping.topping.name;
+		temp := "Add " + tname + ", ";
+		if(description != null){
+			description := description.toString() + temp
+		}else{
+			description := temp
+		}
 	};
-	// description := description + " and bake for 15 minutes at 250C";
+	 description := description + "and bake for 15 minutes at 250C";
 	
 }
-
-
-
 
 helper MMPizza::NamedElement :: getPizzaName(): String {
 	return "Recipe for Pizza " + self.name;
