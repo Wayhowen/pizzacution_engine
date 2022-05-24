@@ -10,7 +10,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: pizzacution.recipe.recipe,
  pizzacution.recipe.recipe.impl,
- pizzacution.recipe.recipe.util
+ pizzacution.recipe.recipe.util,
+ pizzacution.recipe,
+ pizzacution.recipe.impl,
+ pizzacution.recipe.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

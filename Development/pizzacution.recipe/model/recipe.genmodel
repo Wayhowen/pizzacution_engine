@@ -6,7 +6,7 @@
     testsDirectory="/pizzacution.recipe.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>recipe.ecore</foreignModel>
-  <genPackages prefix="Recipe" basePackage="pizzacution.recipe" disposableProviderFactory="true"
+  <genPackages prefix="Recipe" basePackage="pizzacution" disposableProviderFactory="true"
       ecorePackage="recipe.ecore#/">
     <genClasses ecoreClass="recipe.ecore#//Recipe">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Recipe/basePreparation"/>
