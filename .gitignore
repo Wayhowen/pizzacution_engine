@@ -4,3 +4,4 @@ pizzacution.query/.metadata
 *.edit
 *.editor
 src-gen
+xtend-gen

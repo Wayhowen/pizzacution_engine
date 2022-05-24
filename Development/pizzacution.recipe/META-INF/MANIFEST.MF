@@ -8,10 +8,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: pizzacution.recipe.recipe,
- pizzacution.recipe.recipe.impl,
- pizzacution.recipe.recipe.util,
- pizzacution.recipe,
+Export-Package: pizzacution.recipe,
  pizzacution.recipe.impl,
  pizzacution.recipe.util
 Require-Bundle: org.eclipse.core.runtime,

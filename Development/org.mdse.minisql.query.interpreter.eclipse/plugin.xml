@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="pizzacution.query.interpreter.eclipse.launch.PizzacutionQueryLaunchShortcut"
+            description="Executes the Pizzacution Query"
+            icon="icons/PizzacutionQuery16.gif"
+            id="pizzacution.query.interpreter.eclipse.launch.PizzacutionQueryLaunchShortcutType"
+            label="Execute Pizzacution Query"
+            modes="run">
+          <contextualLaunch>
+           <enablement>
+             <with variable="selection">
+               <count value="1"/>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt type="org.eclipse.core.resources.IFile"/>
+                    <test property="org.eclipse.debug.ui.matchesPattern"
+                          value="*.hungry"/>
+               </iterate>
+             </with>
+           </enablement>
+           <contextLabel
+              mode="run"
+              label="Pizzacution Query"/>
+         </contextualLaunch>
+      </shortcut>
+   </extension>
+</plugin>

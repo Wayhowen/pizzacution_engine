@@ -1,0 +1,19 @@
+<%@ jet 
+  package="pizzacution.recipe.jet"
+  imports="pizzacution.recipe.*"  
+  class="Recipe2HTMLTemplate" %>
+  
+<% RecipesBook rb = (RecipesBook) argument; %>
+
+<% String recipeName = rb.getPhoneOwner().getGivenName(); %>
+
+
+<table>
+    <% for (Recipe r : rb.getRecipe()) { %>
+         <tr>
+                <td><%= r.getRecipeName() %></td>
+                <td><%= r.getBasePreparation() %></td>
+                <td><%= r.getAddToppings() %></td>
+            </tr>
+<% } %>
+</table>
