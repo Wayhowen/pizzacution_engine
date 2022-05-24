@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<recipe:RecipesBook xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:recipe="http://www.pizzacution.org/recipe">
+<recipe:RecipesBook xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:recipe="http://www.pizzacution.org/recipe" placeName="SuperPizza">
   <recipe recipeName="Recipe for Pizza Margherita">
     <basePreparation description="Shape into a round the nys dough Add tmt sauce and place it on the dough"/>
-    <addToppings description="Add Mozzarella"/>
+    <addToppings description="Add Mozzarella, Add Tomato, and bake for 15 minutes at 250C"/>
   </recipe>
 </recipe:RecipesBook>

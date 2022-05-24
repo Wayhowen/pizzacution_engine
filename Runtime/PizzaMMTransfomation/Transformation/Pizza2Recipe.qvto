@@ -24,13 +24,19 @@ mapping MMPizza::Pizza :: Pizza2Description(): MMRecipe :: PrepareBase
 }
 
 mapping MMPizza::Pizza :: Topping2Description(): MMRecipe :: AddToppings 
-	when{self.toppings != null}{
-	var a: String;
-	self.toppings -> forEach(topping) {
-		a := topping.name;
-		description := "Add " + a
+	when{self.toppingReferences != null}{
+	var tname: String;
+	var temp: String;
+	self.toppingReferences -> forEach(topping) {
+		tname := topping.topping.name;
+		temp := "Add " + tname + ", ";
+		if(description != null){
+			description := description.toString() + temp
+		}else{
+			description := temp
+		}
 	};
-	// description := description + " and bake for 15 minutes at 250C";
+	 description := description + "and bake for 15 minutes at 250C";
 	
 }
 
