@@ -49,7 +49,11 @@ public class QueryInterpreter {
 					containsClauses.add(cc);
 				}
 			} else if (thatDirective.getIsServedClause() != null) {
-				// TODO: handle
+				for (IsServedDirective isd : thatDirective.getIsServedClause().getIsServedDirective()) {
+					if (isd instanceof InClause) {
+						pizzasConts = this.handleInClause((InClause) isd, pizzasConts);
+					}
+				}
 			}
 		}
 		
@@ -132,8 +136,16 @@ public class QueryInterpreter {
 		return filteredPizzas;
 	}
 	
-	private List<Pizza> handleIsServedClause(IsServedClause isServedClause, List<Pizza> pizzas) {
-		return new ArrayList();
+	private List<PizzaContainer> handleInClause(InClause inClause, List<PizzaContainer> pizzas) {
+		List<PizzaContainer> filteredPizzas = new ArrayList();
+		for (PizzaContainer pizza : pizzas) {
+			for (SizeReference sizeRef : inClause.getSizeReference()) {
+				if (pizza.size == sizeRef.getSize()) {
+					filteredPizzas.add(pizza);
+				}
+			}
+		}
+		return filteredPizzas;
 	}
 	
 	private List<PizzaContainer> handleWhatClause(WhatClause whatClause, List<PizzaContainer> pizzas) {

@@ -36,8 +36,18 @@ public class PizzaContainer {
 		
 		output += this.pizza.getName();
 		output += " | ";
+		output += this.size.getName();
+		output += " | ";
+		output += this.pizza.getSauce();
+		output += " | ";
+		output += this.pizza.getDough();
+		output += " | ";
 		output += String.format("%.02f", this.price);
 		output += " DKK ";
+		output += " | ";
+		output += this.pizza.getSoldIn().getName();
+		output += " | ";
+		output += this.getToppingsString();
 		
 		return output;
 	}
@@ -57,5 +67,19 @@ public class PizzaContainer {
 			toppings.add(tr.getTopping());
 		}
 		return toppings;
+	}
+	
+	private String getToppingsString() {
+		boolean isFirst = true;
+		String toppingsString = "";
+		for (Topping topping : this.toppings) {
+			if (isFirst) {
+				toppingsString += topping.getName();
+				isFirst = false;
+			} else {
+				toppingsString += ", " + topping.getName();
+			}
+		}
+		return toppingsString;
 	}
 }

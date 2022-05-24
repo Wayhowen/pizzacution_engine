@@ -89,6 +89,7 @@ public class PizzacutionQueryLaunchShortcut implements ILaunchShortcut {
 		
 		println("========================================", consoleOutputStream);
 		println("Pizza Query Result", consoleOutputStream);
+		println("NAME | SIZE | SAUCE | DOUGH | PRICE | PIZZA PLACE | TOPPINGS", consoleOutputStream);
 		println("========================================", consoleOutputStream);
 		if (result.size() > 0) {
 			for (PizzaContainer pizzaContainer : result) {
