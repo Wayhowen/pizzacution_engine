@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Validation
+Bundle-SymbolicName: pizzacution.query.validation; singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: pizzacution.query.validation
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.ui,
+ pizzacution.query

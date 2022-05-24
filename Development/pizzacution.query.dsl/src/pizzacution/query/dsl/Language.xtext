@@ -6,7 +6,7 @@ import "http://www.example.org/query" as query
 import "http://www.example.org/schema" as schema
 
 
-// TODO: we need to enfore that all that clauses are different
+
 SelectQuery returns query::SelectQuery: "I" "want" whatClause=WhatClause
 	thatClause+=ThatClause ("and" thatClause+=ThatClause)*
 ;
@@ -36,11 +36,11 @@ DoesntHaveClause returns query::DoesntHaveClause: "does" "not" "have" toppingRef
 ToppingReference returns query::ToppingReference: topping=[schema::Topping];
 
 // TODO: ensure that we cannot say both precisely and less than and so on
-CostClause returns query::CostClause: "costs" costDirective+=CostDirective ("and" costDirective+=CostDirective)? "dkk";
+CostClause returns query::CostClause: "costs" costDirective+=CostDirective ("or" costDirective+=CostDirective)? "dkk";
 
 CostDirective returns query::CostDirective: operator=ComparativeOperator price=FLOAT;
 
-IsServedClause returns query::IsServedClause: "is" "served" isServedDirective+=IsServedDirective ("," isServedDirective+=IsServedDirective)*;
+IsServedClause returns query::IsServedClause: "is" "served" isServedDirective+=IsServedDirective ("," isServedDirective+=IsServedDirective)?;
 
 // TODO: ensure that both directives are different
 // ensure only 2 different can be present

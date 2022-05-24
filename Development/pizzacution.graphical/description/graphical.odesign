@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="graphical" version="12.0.0.2017041100">
+  <ownedViewpoints name="Pizzaplace Viewpoint" modelFileExtension="schema">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Pizza Definition Viewpoint" domainClass="schema::PizzaPlace" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Topping Node" domainClass="schema::Topping">
+          <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <containerMappings name="Pizza Place Container" semanticCandidatesExpression="var:self" domainClass="schema::PizzaPlace">
+          <subContainerMappings name="Pizza Container" semanticCandidatesExpression="feature:pizzasAvailable" domainClass="schema::Pizza">
+            <subNodeMappings name="Topping Reference" semanticCandidatesExpression="feature:eAllContents" domainClass="schema::ToppingReference">
+              <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelExpression="aql:self.topping.foodGroup" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+              <conditionnalStyles predicateExpression="aql:self.topping.foodGroup.toString() = 'cheese'">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.topping.name" labelAlignment="LEFT" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/pizzacution.graphical/images/icon_cheese.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql:self.topping.foodGroup.toString() = 'veg'">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.topping.name" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/pizzacution.graphical/images/icon_salad.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql:self.topping.foodGroup.toString() = 'meat'">
+                <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.topping.name" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/pizzacution.graphical/images/icon_meat.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+            <conditionnalStyles predicateExpression="aql:self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'cheese')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'meat')->size() = 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'veg')->size() = 0 ">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_cheese.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'cheese')->size() = 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'meat')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'veg')->size() = 0 ">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_meat.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'cheese')->size() = 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'meat')->size() = 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'veg')->size() > 0 ">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_salad.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'cheese')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'meat')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'veg')->size() = 0 ">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_cheese_meat.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'cheese')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'meat')->size() = 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'veg')->size() > 0 ">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_cheese_salad.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'cheese')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'meat')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'veg')->size() > 0 ">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_cheese_meat_salad.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'cheese')->size() = 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'meat')->size() > 0 and self.toppingReferences->select(r | r.topping.foodGroup.toString() = 'veg')->size() > 0 ">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="aql:self.name + '(' + self.dough + ',' + self.sauce + ')'" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_meat_salad.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" widthComputationExpression="50" heightComputationExpression="50">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Pizza Creation Tool" containerMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema::Pizza" referenceName="pizzasAvailable">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Pizza "/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Topping Creation Tool" nodeMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@nodeMappings[name='Topping%20Node']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema.Topping" referenceName="toppingsAvailable"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToppingReferenceCreation" nodeMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema::ToppingReference" referenceName="toppingReferences">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="topping" valueExpression="aql:self.eContainer().eContainer().toppingsAvailable->select(t | t.name == 'Salami')->at(1)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Topping Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Spinach Creation" nodeMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema::ToppingReference" referenceName="toppingReferences">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="topping" valueExpression="aql:self.eContainer().eContainer().toppingsAvailable->select(t | t.name = 'Spinach')->first()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Salami Creation" nodeMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema::ToppingReference" referenceName="toppingReferences">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="topping" valueExpression="aql:self.eContainer().eContainer().toppingsAvailable->select(t | t.name == 'Salami')->at(1)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Cheese Creation" nodeMappings="//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="schema::ToppingReference" referenceName="toppingReferences">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="topping" valueExpression="aql:self.eContainer().eContainer().toppingsAvailable->select(t | t.name == 'Cheese')->first()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="pizzacution.graphical.Services"/>
+  </ownedViewpoints>
+</description:Group>
