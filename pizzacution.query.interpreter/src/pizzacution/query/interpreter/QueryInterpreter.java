@@ -31,12 +31,6 @@ public class QueryInterpreter {
 		
 		// we do this here to do all the precalculations for pizzas
 		List<PizzaContainer> pizzasConts = containerizePizzas(pizzas);
-		System.out.println("-------------------");
-		for (PizzaContainer pc : pizzasConts) {
-			System.out.println(pc.price);
-			System.out.println(pc.size.getPriceMultiplier());
-		}
-		System.out.println("-------------------");
 		
 		for (ThatClause thatClause : thatClauses) {
 			ThatDirective thatDirective = thatClause.getThatDirective();
@@ -89,7 +83,6 @@ public class QueryInterpreter {
 				CostDirective c2 = costDirectives.get(1);
 				if (comparator.operate(c1.getOperator(), pizzaCont.price, c1.getPrice()) ||
 						comparator.operate(c2.getOperator(), pizzaCont.price, c2.getPrice())) {
-					System.out.println(pizzaCont.price);
 					filteredPizzas.add(pizzaCont);
 				}
 			} else {
