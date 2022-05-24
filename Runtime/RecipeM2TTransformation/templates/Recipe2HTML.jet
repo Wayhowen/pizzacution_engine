@@ -1,0 +1,40 @@
+<%@ jet 
+  package="pizzacution.recipe.jet"
+  imports="pizzacution.recipe.*"  
+  class="Recipe2HTMLTemplate" %>
+  
+
+  
+  <% RecipesBook rb = (RecipesBook) argument; %>
+  
+  
+  <div style="margin-top: 3%;">
+    <h1 style="text-align: center; margin-bottom: 4%">Recipies Book</h1>
+    <div style="margin-left: 25%; width: 50%"">
+    <hr>
+    <table style="width: 100%">
+        <tr height="50px">
+            <th style="width: 40%">Pizza Name</th>
+            <th>Toppings</th>
+            <th>Restaurant</th>
+        </tr>
+        
+        <% for (Recipe r : rb.getRecipe()) { %>
+         <tr height="35px">
+            <td><i><%= r.getRecipeName() %></i></td>
+               
+            <td style="text-align: center;">
+                <% for (AddToppings t : r.getAddToppings()) { %> <%= t.getDescription() %><% } %>
+            </td>
+            
+           <td style="text-align: center;"><a><u><%= rb.getPlaceName() %></u></a></td>
+                
+           </tr>
+     <% } %>
+    </table>
+    <hr>
+    </div>
+  </div>
+
+
+
