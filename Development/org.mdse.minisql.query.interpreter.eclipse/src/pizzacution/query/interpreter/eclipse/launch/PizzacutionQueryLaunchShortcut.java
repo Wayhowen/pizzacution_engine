@@ -18,8 +18,10 @@ import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 import pizzacution.query.SelectQuery;
+import pizzacution.query.interpreter.PizzaContainer;
 import pizzacution.query.interpreter.QueryInterpreter;
 import pizzacution.query.interpreter.eclipse.PizzacutionQueryEclipseUtil;
+import pizzacution.schema.Pizza;
 
 public class PizzacutionQueryLaunchShortcut implements ILaunchShortcut {
 
@@ -68,8 +70,8 @@ public class PizzacutionQueryLaunchShortcut implements ILaunchShortcut {
 			QueryInterpreter interpreter = new QueryInterpreter();
 //			ResultData resultData = 
 			//TODO: Take whatever the result of interpretation is and print it to the console via print(...) methods
-			interpreter.interpret(selectQuery);
-			printResultToConsole();
+			List<PizzaContainer> result = interpreter.interpret(selectQuery);
+			printResultToConsole(result);
 		} catch (Exception e) {
 			String title = "Error";
 			String message = e.getMessage();
@@ -78,22 +80,26 @@ public class PizzacutionQueryLaunchShortcut implements ILaunchShortcut {
 	}
 	
 	
-	protected void printResultToConsole(/*ResultData resultData*/) {
+	protected void printResultToConsole(List<PizzaContainer> result) {
 		// Reroute output to console of runtime instance
 		MessageConsole console = PizzacutionQueryEclipseUtil.findOrCreateConsole("Pizzacution Query Interpreter");
 		console.clearConsole();
 		console.activate();
 		OutputStream consoleOutputStream = console.newOutputStream();
 		
-		//Print the actual query result
-		
-		println("DEBUG: On console", consoleOutputStream);
-		
-//		List<RowData> tableData = resultData.getTableData();
-//		for (RowData rowData : tableData) {
-//			println(rowData.toString(), consoleOutputStream);
-//		}
-//		
+		println("========================================", consoleOutputStream);
+		println("Pizza Query Result", consoleOutputStream);
+		println("NAME | SIZE | SAUCE | DOUGH | PRICE | PIZZA PLACE | TOPPINGS", consoleOutputStream);
+		println("========================================", consoleOutputStream);
+		if (result.size() > 0) {
+			for (PizzaContainer pizzaContainer : result) {
+				println(pizzaContainer.toString(), consoleOutputStream);
+			}
+		} else {
+			println("No pizzas matching selected criteria were found.", consoleOutputStream);
+		}
+		println("========================================", consoleOutputStream);
+	
 		println(consoleOutputStream);
 	}
 	
