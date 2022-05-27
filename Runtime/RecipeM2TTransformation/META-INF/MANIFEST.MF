@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RecipeM2TTransformation
+Bundle-SymbolicName: RecipeM2TTransformation
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: RecipeM2TTransformation
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Require-Bundle: pizzacution.recipe;bundle-version="1.0.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.16.0"
