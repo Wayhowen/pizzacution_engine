@@ -10,7 +10,7 @@
       <!-- @generated recipe -->
       <package
             uri="http://www.pizzacution.org/recipe"
-            class="pizzacution.recipe.recipe.RecipePackage"
+            class="pizzacution.recipe.RecipePackage"
             genModel="model/recipe.genmodel"/>
    </extension>
 
