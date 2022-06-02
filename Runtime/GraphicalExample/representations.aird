@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:schema="http://www.example.org/schema" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_nVBwkOJtEeynCsRflrTvvQ" selectedViews="_0e5w4OJtEeynCsRflrTvvQ" version="15.0.0.202201261500">
+    <semanticResources>MariosPizzaPlace.schema</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_0e5w4OJtEeynCsRflrTvvQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_2dVzgeJtEeynCsRflrTvvQ" name="Marios Pizza Definition Viewpoint" repPath="#_2dMpkOJtEeynCsRflrTvvQ" changeId="a6c25e95-b729-4f98-8ac6-75cff8c4ffad">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']"/>
+        <target xmi:type="schema:PizzaPlace" href="MariosPizzaPlace.schema#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_2dMpkOJtEeynCsRflrTvvQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_2drxwOJtEeynCsRflrTvvQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_2drxweJtEeynCsRflrTvvQ" type="Sirius" element="_2dMpkOJtEeynCsRflrTvvQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_2eRnoOJtEeynCsRflrTvvQ" type="2002" element="_2d-ssOJtEeynCsRflrTvvQ">
+          <children xmi:type="notation:Node" xmi:id="_2eRno-JtEeynCsRflrTvvQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_2eRnpOJtEeynCsRflrTvvQ" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_7WwZhOJtEeynCsRflrTvvQ" type="3008" element="_7WmogOJtEeynCsRflrTvvQ">
+              <children xmi:type="notation:Node" xmi:id="_7WwZh-JtEeynCsRflrTvvQ" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_7WwZiOJtEeynCsRflrTvvQ" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_7vPyCuJtEeynCsRflrTvvQ" type="3007" element="_7vPyAOJtEeynCsRflrTvvQ">
+                  <children xmi:type="notation:Node" xmi:id="_7vPyDeJtEeynCsRflrTvvQ" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_7vPyDuJtEeynCsRflrTvvQ" x="-14" y="-29"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_7vPyD-JtEeynCsRflrTvvQ" type="3005" element="_7vPyAeJtEeynCsRflrTvvQ">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_7vPyEOJtEeynCsRflrTvvQ" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7vPyEeJtEeynCsRflrTvvQ"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_7vPyC-JtEeynCsRflrTvvQ" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7vPyDOJtEeynCsRflrTvvQ" x="116" y="79" width="60" height="55"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_8hB0ROJtEeynCsRflrTvvQ" type="3007" element="_8g4qUOJtEeynCsRflrTvvQ">
+                  <children xmi:type="notation:Node" xmi:id="_8hB0R-JtEeynCsRflrTvvQ" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_8hB0SOJtEeynCsRflrTvvQ" y="-29"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_8hLlQOJtEeynCsRflrTvvQ" type="3005" element="_8g4qUeJtEeynCsRflrTvvQ">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_8hLlQeJtEeynCsRflrTvvQ" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8hLlQuJtEeynCsRflrTvvQ"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_8hB0ReJtEeynCsRflrTvvQ" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8hB0RuJtEeynCsRflrTvvQ" x="80" y="107" width="60" height="58"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_7WwZieJtEeynCsRflrTvvQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_7WwZiuJtEeynCsRflrTvvQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7WwZheJtEeynCsRflrTvvQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7WwZhuJtEeynCsRflrTvvQ" x="19" y="72"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9-fQw-JtEeynCsRflrTvvQ" type="3008" element="_9-c0gOJtEeynCsRflrTvvQ">
+              <children xmi:type="notation:Node" xmi:id="_9-f30OJtEeynCsRflrTvvQ" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_9-f30eJtEeynCsRflrTvvQ" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_AKZusOJuEeynCsRflrTvvQ" type="3007" element="_AKXScOJuEeynCsRflrTvvQ">
+                  <children xmi:type="notation:Node" xmi:id="_AKZus-JuEeynCsRflrTvvQ" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_AKZutOJuEeynCsRflrTvvQ" x="61"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_AKaVwOJuEeynCsRflrTvvQ" type="3005" element="_AKXSceJuEeynCsRflrTvvQ">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_AKaVweJuEeynCsRflrTvvQ" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AKaVwuJuEeynCsRflrTvvQ"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_AKZuseJuEeynCsRflrTvvQ" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AKZusuJuEeynCsRflrTvvQ" x="50" y="85" width="60" height="58"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_9-f30uJtEeynCsRflrTvvQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_9-f30-JtEeynCsRflrTvvQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_9-fQxOJtEeynCsRflrTvvQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9-fQxeJtEeynCsRflrTvvQ" x="325" y="72"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2eRnpeJtEeynCsRflrTvvQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2eRnpuJtEeynCsRflrTvvQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2eRnoeJtEeynCsRflrTvvQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2eRnouJtEeynCsRflrTvvQ" x="30" y="6"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_2drxwuJtEeynCsRflrTvvQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_2eIdsOJtEeynCsRflrTvvQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_2eIdseJtEeynCsRflrTvvQ"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_2d-ssOJtEeynCsRflrTvvQ" name="Marios Pizza Place" width="50" height="50">
+      <target xmi:type="schema:PizzaPlace" href="MariosPizzaPlace.schema#/"/>
+      <semanticElements xmi:type="schema:PizzaPlace" href="MariosPizzaPlace.schema#/"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_2d-sseJtEeynCsRflrTvvQ" labelSize="12" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_7WmogOJtEeynCsRflrTvvQ" name="Spinachi">
+        <target xmi:type="schema:Pizza" href="MariosPizzaPlace.schema#//@pizzasAvailable.0"/>
+        <semanticElements xmi:type="schema:Pizza" href="MariosPizzaPlace.schema#//@pizzasAvailable.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_8g4qVuJtEeynCsRflrTvvQ" labelSize="12" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_cheese_salad.png">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@conditionnalStyles.4/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']"/>
+        <ownedDiagramElements xmi:type="diagram:DNode" uid="_7vPyAOJtEeynCsRflrTvvQ" name="Spinach" width="-1" height="-1" resizeKind="NSEW">
+          <target xmi:type="schema:ToppingReference" href="MariosPizzaPlace.schema#//@pizzasAvailable.0/@toppingReferences.0"/>
+          <semanticElements xmi:type="schema:ToppingReference" href="MariosPizzaPlace.schema#//@pizzasAvailable.0/@toppingReferences.0"/>
+          <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_7vPyAeJtEeynCsRflrTvvQ" labelSize="12" workspacePath="/pizzacution.graphical/images/icon_salad.png">
+            <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']/@conditionnalStyles.1/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNode" uid="_8g4qUOJtEeynCsRflrTvvQ" name="Feta" width="-1" height="-1" resizeKind="NSEW">
+          <target xmi:type="schema:ToppingReference" href="MariosPizzaPlace.schema#//@pizzasAvailable.0/@toppingReferences.1"/>
+          <semanticElements xmi:type="schema:ToppingReference" href="MariosPizzaPlace.schema#//@pizzasAvailable.0/@toppingReferences.1"/>
+          <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_8g4qUeJtEeynCsRflrTvvQ" labelSize="12" labelAlignment="LEFT" workspacePath="/pizzacution.graphical/images/icon_cheese.png">
+            <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']/@conditionnalStyles.0/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_9-c0gOJtEeynCsRflrTvvQ" name="Margerita">
+        <target xmi:type="schema:Pizza" href="MariosPizzaPlace.schema#//@pizzasAvailable.1"/>
+        <semanticElements xmi:type="schema:Pizza" href="MariosPizzaPlace.schema#//@pizzasAvailable.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_AKZHo-JuEeynCsRflrTvvQ" labelSize="12" workspacePath="/pizzacution.graphical/images/icon_pizza_dough_tomato_cheese.png">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']"/>
+        <ownedDiagramElements xmi:type="diagram:DNode" uid="_AKXScOJuEeynCsRflrTvvQ" name="Mozzarella" width="-1" height="-1" resizeKind="NSEW">
+          <target xmi:type="schema:ToppingReference" href="MariosPizzaPlace.schema#//@pizzasAvailable.1/@toppingReferences.0"/>
+          <semanticElements xmi:type="schema:ToppingReference" href="MariosPizzaPlace.schema#//@pizzasAvailable.1/@toppingReferences.0"/>
+          <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_AKXSceJuEeynCsRflrTvvQ" labelSize="12" labelAlignment="LEFT" workspacePath="/pizzacution.graphical/images/icon_cheese.png">
+            <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']/@conditionnalStyles.0/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer/@containerMappings[name='Pizza%20Place%20Container']/@subContainerMappings[name='Pizza%20Container']/@subNodeMappings[name='Topping%20Reference']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_2dVzgOJtEeynCsRflrTvvQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/pizzacution.graphical/description/graphical.odesign#//@ownedViewpoints[name='Pizzaplace%20Viewpoint']/@ownedRepresentations[name='Pizza%20Definition%20Viewpoint']/@defaultLayer"/>
+    <target xmi:type="schema:PizzaPlace" href="MariosPizzaPlace.schema#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
