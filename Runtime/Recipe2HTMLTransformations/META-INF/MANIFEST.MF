@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Recipe2HTMLTransformations
-Bundle-SymbolicName: Recipe2HTMLTransformations
-Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: Recipe2HTMLTransformations
-Bundle-RequiredExecutionEnvironment: JavaSE-17
-Require-Bundle: pizzacution.recipe;bundle-version="1.0.0"
